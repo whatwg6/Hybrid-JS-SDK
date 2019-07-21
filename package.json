@@ -1,0 +1,23 @@
+{
+  "name": "js-bridge",
+  "version": "1.0.0",
+  "description": "js-bridge",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yxuchen/js-bridge.git"
+  },
+  "author": "yxuchen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yxuchen/js-bridge/issues"
+  },
+  "homepage": "https://github.com/yxuchen/js-bridge#readme",
+  "dependencies": {
+    "uuid": "^3.3.2",
+    "webpack-cli": "^3.3.5"
+  }
+}

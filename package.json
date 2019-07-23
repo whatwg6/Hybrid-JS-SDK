@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/yxuchen/js-bridge#readme",
   "dependencies": {
+    "eventemitter3": "^4.0.0",
     "uuid": "^3.3.2",
     "webpack-cli": "^3.3.5"
   }

@@ -1,11 +1,19 @@
+const EventEmitter = require('eventemitter3')
 const NativeInterface = require('./NativeInterface')
-
-const uuid = require('uuid/v4')
 
 class Adapter {
   constructor () {
-    this.listeners = {}
-    this.callBacks = {}
+    this.messages = {}
+    this.eventEmitter = new EventEmitter()
+    this.messagesObserver = new Proxy(this.messages, {
+      set: (target, key, value, receiver) => {
+        const result = Reflect.set(target, key, value, receiver)
+        this.eventEmitter.emit('messagesObserver', {
+          messages: this.messages
+        })
+        return result
+      }
+    })
   }
 
   postMessage ({ id, payload: { action, params } }) {
@@ -27,11 +35,11 @@ class Adapter {
   }
 
   connect () {
-    const { listeners, callBacks } = this
+    const { messagesObserver, eventEmitter } = this
 
     global.webApp = new NativeInterface({
-      listeners,
-      callBacks
+      messagesObserver,
+      eventEmitter
     })
   }
 }

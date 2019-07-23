@@ -57,7 +57,8 @@ unsubscribe()
 ## TODO
 
 * [ ] bundle for npm
-* [ ] optimize Web -> Native
+* [ ] optimize Native -> Web
+* [x] optimize Web -> Native
 ```js
 // before
 bridge

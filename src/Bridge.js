@@ -6,8 +6,21 @@ class Bridge {
     this.adapter.connect()
   }
 
-  dispatch (action, params, callBack) {
+  onDispatch (id) {
+    return new Promise((resolve, reject) => {
+      this.adapter.eventEmitter.on('messagesObserver', ({ messages }) => {
+        const message = messages[id]
+        if (messages[id]) {
+          resolve(message.payload.params)
+        }
+        reject({ message, id })
+      })
+    })
+  }
+
+  dispatch (action, params) {
     const id = 1 // uuid()
+
     this.adapter.postMessage({
       id,
       payload: {
@@ -15,26 +28,11 @@ class Bridge {
         params
       }
     })
-    this.adapter.callBacks[id] = callBack
+
+    return this.onDispatch(id)
   }
 
-  listen (action, handler) {
-    const listeners = this.adapter.listeners
-
-    if (!listeners[action]) {
-      listeners[action] = []
-    }
-
-    listeners[action].push(handler)
-
-    return () => {
-      listeners[action].splice(
-        listeners[action].findIndex(listen => listen === handler),
-        1
-      )
-      console.log(`unscribe ${action}`)
-    }
-  }
+  listen (action, handler) {}
 }
 
 module.exports = Bridge

@@ -6,7 +6,7 @@ class Bridge {
     this.adapter.connect()
   }
 
-  onDispatch (id) {
+  onCallback (id) {
     return new Promise((resolve, reject) => {
       this.adapter.eventEmitter.on('messagesObserver', ({ messages }) => {
         const message = messages[id]
@@ -29,7 +29,7 @@ class Bridge {
       }
     })
 
-    return this.onDispatch(id)
+    return this.onCallback(id)
   }
 
   listen (action, handler) {}

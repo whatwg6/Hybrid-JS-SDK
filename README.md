@@ -18,15 +18,15 @@ Web define two methods in window:
 - Web dispatch `module/action`
 ```js
 bridge
-  .dispatch('base/openURL', { url: 'url' }, function(params) {
-    console.log(`openURL ${params}`)
-  })
+  .dispatch('base/openURL', { url: 'url' })
+  .then(({ status }) => console.log(`openURL`, status))
+  .catch(err => console.log(openURL, err))
 ```
-> [TODO](https://github.com/77xi/Hybrid#todo)
 - Native callBack `module/action`
 ```js
 setTimeout(() => {
-  webApp.callBack('1', { status: 'success/fail' }).then(arg => console.log(arg))
+  webApp.callBack('1', { status: 'success' })
+  webApp.callBack('2', { status: 'fail' })
 })
 ```
 
@@ -49,6 +49,7 @@ webApp
 ```
 unsubscribe()
 ```
+> 删除了 [Native -> Web](https://github.com/77xi/Hybrid-JS-SDK#todo) 旧版实现，见 TODO
 
 ## Preview
 

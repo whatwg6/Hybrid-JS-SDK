@@ -20,7 +20,7 @@ Web define two methods in window:
 bridge
   .dispatch('base/openURL', { url: 'url' })
   .then(({ status }) => console.log(`openURL`, status))
-  .catch(err => console.log(openURL, err))
+  .catch(err => console.log(`penURL`, err))
 ```
 - Native callBack `module/action`
 ```js
@@ -49,7 +49,7 @@ webApp
 ```
 unsubscribe()
 ```
-> 删除了 [Native -> Web](https://github.com/77xi/Hybrid-JS-SDK#todo) 旧版实现，见 TODO
+> has been delete Native -> Web code，see [TODO](https://github.com/77xi/Hybrid-JS-SDK#todo)
 
 ## Preview
 

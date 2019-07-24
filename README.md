@@ -17,10 +17,10 @@ Web define two methods in window:
 
 - Web dispatch `module/action`
 ```js
-bridge
+hybrid
   .dispatch('base/openURL', { url: 'url' })
   .then(({ status }) => console.log(`openURL`, status))
-  .catch(err => console.log(`penURL`, err))
+  .catch(err => console.log(`openURL`, err))
 ```
 - Native callBack `module/action`
 ```js
@@ -34,7 +34,7 @@ setTimeout(() => {
 
 - Web subscribe `module/action`
 ```js
-const unsubscribe = bridge.listen('base/themeChange', ({ theme }) =>
+const unsubscribe = hybrid.listen('base/themeChange', ({ theme }) =>
   console.log(`theme is ${theme}`)
 )
 ```
@@ -49,16 +49,15 @@ webApp
 ```
 unsubscribe()
 ```
-> has been delete Native -> Web code，see [TODO](https://github.com/77xi/Hybrid-JS-SDK#todo)
 
 ## Preview
 
-- vscode debug [file](https://github.com/77xi/Hybrid/blob/master/src/index.js)
+- vscode debug [file](https://github.com/77xi/Hybrid/blob/master/examples/index.js)
 
 ## TODO
 
 * [ ] bundle for npm
-* [ ] optimize Native -> Web
+* [x] optimize Native -> Web
 * [x] optimize Web -> Native
 ```js
 // before

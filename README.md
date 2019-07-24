@@ -56,6 +56,8 @@ unsubscribe()
 
 ## TODO
 
+* [ ] pre commit
+* [ ] auto publish
 * [ ] bundle for npm
 * [x] optimize Native -> Web
 * [x] optimize Web -> Native

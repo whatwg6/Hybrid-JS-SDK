@@ -1,21 +1,21 @@
 {
-  "name": "js-bridge",
-  "version": "1.0.0",
-  "description": "js-bridge",
+  "name": "hybrid-js-sdk",
+  "version": "0.0.1",
+  "description": "Hybrid-JS-SDK",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yxuchen/js-bridge.git"
+    "url": "git+https://github.com/77xi/Hybrid-JS-SDK.git"
   },
   "author": "yxuchen",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/yxuchen/js-bridge/issues"
+    "url": "https://github.com/77xi/Hybrid-JS-SDK/issues"
   },
-  "homepage": "https://github.com/yxuchen/js-bridge#readme",
+  "homepage": "https://github.com/77xi/Hybrid-JS-SDK#readme",
   "dependencies": {
     "eventemitter3": "^4.0.0",
     "uuid": "^3.3.2",

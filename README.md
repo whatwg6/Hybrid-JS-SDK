@@ -63,13 +63,13 @@ unsubscribe()
 * [x] optimize Web -> Native
 ```js
 // before
-bridge
+hybrid
   .dispatch('base/openURL', { url: 'url' }, function(params) {
     console.log(`openURL ${params}`)
   })
 
 // after
-bridge
+hybrid
   .dispatch('base/openURL', { url: 'url' })
   .then(success => console.log(`openURL ${success}`))
   .catch(err => console.log(`openURL ${err}`))

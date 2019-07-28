@@ -56,9 +56,7 @@ unsubscribe()
 
 ## TODO
 
-* [ ] tests
-* [ ] auto publish
-* [ ] bundle for npm
+* [ ] ...
 
 ## Others
 

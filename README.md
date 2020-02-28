@@ -1,51 +1,62 @@
-# Hybrid JS-SDK 
+# Hybrid JS-SDK
 
 ## Web call Native
 
-Native inject global function in browser:
+Native inject global function into browser:
+
 - iOS: window.webkit.messageHandlers.nativeApp.postMessage
 - Android: window.nativeApp.sendToNative
 
 ## Native call Web
 
-Web define two methods in window:
-- window.webApp.callback 
+Web define two methods to window:
+
+- window.webApp.callback
 - window.webApp.dispatch
 
 ## Examples
+
 ### Web -> Native
 
 - Web dispatch `module/action`
+
 ```js
 hybrid
-  .dispatch('base/openURL', { url: 'url' })
+  .dispatch("base/openURL", { url: "url" })
   .then(({ status }) => console.log(`openURL`, status))
-  .catch(err => console.log(`openURL`, err))
+  .catch(err => console.log(`openURL`, err));
 ```
+
 - Native callBack `module/action`
+
 ```js
 setTimeout(() => {
-  webApp.callBack('1', { status: 'success' })
-  webApp.callBack('2', { status: 'fail' })
-})
+  webApp.callBack("1", { status: "success" });
+  webApp.callBack("2", { status: "fail" });
+});
 ```
 
 ### Native -> Web
 
 - Web subscribe `module/action`
+
 ```js
-const unsubscribe = hybrid.listen('base/themeChange', ({ theme }) =>
+const unsubscribe = hybrid.listen("base/themeChange", ({ theme }) =>
   console.log(`theme is ${theme}`)
-)
+);
 ```
+
 - Native publish `module/action`
+
 ```js
 webApp
-  .dispatch('base/themeChange', { theme: 'light' })
+  .dispatch("base/themeChange", { theme: "light" })
   .then(success => console.log(success))
-  .catch(err => console.log(err))
+  .catch(err => console.log(err));
 ```
+
 - unsubscribe `module/action`
+
 ```
 unsubscribe()
 ```
@@ -56,7 +67,7 @@ unsubscribe()
 
 ## TODO
 
-* [ ] ...
+- [ ] ...
 
 ## Others
 

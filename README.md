@@ -1,5 +1,3 @@
-> This branch is refactoring with TS [switch branch dev/ts to master?](https://github.com/0x0006e/Hybrid-JS-SDK/tree/master)
-
 # Hybrid JS-SDK
 
 ## Web call Native

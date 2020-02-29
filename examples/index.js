@@ -1,4 +1,6 @@
-const hybrid = require("../src");
+const hybrid = require("../built").default;
+
+require("./nativeSimulator");
 
 // web -> native
 hybrid

@@ -1,29 +1,15 @@
 class NativeInterface {
+  readonly eventEmitter;
+
   constructor({ eventEmitter }) {
     this.eventEmitter = eventEmitter;
   }
 
-  dispatch(event, params) {
+  public dispatch(event, params): void {
     this.eventEmitter.emit(event, params);
-    // return new Promise((resolve, reject) => {
-    //   const id = uuid();
-    //   const eventListeners = this.listeners[event];
-
-    //   if (eventListeners && eventListeners.length) {
-    //     eventListeners.forEach(listener => {
-    //       listener(params);
-    //       resolve();
-    //     });
-    //   } else {
-    //     reject({
-    //       id,
-    //       status: `web unregister ${event}`
-    //     });
-    //   }
-    // });
   }
 
-  callBack(id, params) {
+  public callBack(id, params): void {
     this.eventEmitter.emit("____messagesEvent", {
       [id]: {
         payload: {
@@ -35,4 +21,4 @@ class NativeInterface {
   }
 }
 
-module.exports = NativeInterface;
+export default NativeInterface;

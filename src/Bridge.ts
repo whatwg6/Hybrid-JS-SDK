@@ -1,12 +1,19 @@
-const uuid = require("uuid/v4");
+import { Promise } from "es6-promise";
+
+import * as uuid from "uuid/v4";
+import Adapter from "./Adaper";
+
+type UnListenFunction = Function;
 
 class Bridge {
-  constructor(adapter) {
+  readonly adapter: Adapter;
+
+  constructor(adapter: Adapter) {
     this.adapter = adapter;
     this.adapter.connect();
   }
 
-  dispatch(event, params) {
+  public dispatch(event: string, params): Promise<any> {
     const id = uuid();
     const [module, action] = event.split("/");
 
@@ -31,7 +38,7 @@ class Bridge {
     );
   }
 
-  listen(event, handler) {
+  public listen(event: string, handler: Function): UnListenFunction {
     const wrapHandler = args => handler(args);
 
     this.adapter.eventEmitter.on(event, wrapHandler);
@@ -40,4 +47,4 @@ class Bridge {
   }
 }
 
-module.exports = Bridge;
+export default Bridge;

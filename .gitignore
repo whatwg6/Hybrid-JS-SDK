@@ -4,6 +4,7 @@
 /build
 /static
 /dist
+/built
 
 # Files
 .eslintcache

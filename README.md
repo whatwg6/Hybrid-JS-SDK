@@ -21,7 +21,7 @@ Web define two methods to window:
 - Web dispatch `module/action`
 
 ```js
-hybrid.dispatch(event, params);
+hybrid.dispatch(event, params).then(console.log);
 ```
 
 - Native callBack `module/action`
@@ -43,7 +43,7 @@ const unsubscribe = hybrid.listen(event, callback);
 - Native publish `module/action`
 
 ```js
-webApp.dispatch(event, params);
+webApp.dispatch(event, params).then(console.log);
 ```
 
 - unsubscribe `module/action`
@@ -54,7 +54,10 @@ unsubscribe()
 
 ## Preview
 
-- Vscode debug [file](https://github.com/77xi/Hybrid/blob/master/examples/index.js)
+Vscode debug
+
+- [examples/index.js](./examples/index.js)
+- [examples/nativeSimulator.js](./examples/nativeSimulator.js)
 
 ## TODO
 

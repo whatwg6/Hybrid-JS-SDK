@@ -5,11 +5,11 @@ class NativeInterface {
     this.eventEmitter = eventEmitter;
   }
 
-  public dispatch(event, params): void {
+  public dispatch(event: string, params: any): void {
     this.eventEmitter.emit(event, params);
   }
 
-  public callBack(id, params): void {
+  public callBack(id: string, params: any): void {
     this.eventEmitter.emit("____messagesEvent", {
       [id]: {
         payload: {
@@ -17,7 +17,6 @@ class NativeInterface {
         }
       }
     });
-    // return Promise.resolve();
   }
 }
 

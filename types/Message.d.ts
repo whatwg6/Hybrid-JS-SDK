@@ -9,4 +9,11 @@ type Message = {
   };
 };
 
-export default Message;
+type HybridMessage = {
+  id: Id;
+  module: string;
+  action: string;
+  params: any;
+};
+
+export { Message, HybridMessage };

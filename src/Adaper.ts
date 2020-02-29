@@ -1,7 +1,7 @@
 import EventEmitter from "./EventEmit";
 import NativeInterface from "./NativeInterface";
 
-import Message from "../types/Message";
+import { Message, HybridMessage } from "../types/Message";
 
 declare global {
   namespace NodeJS {
@@ -9,12 +9,12 @@ declare global {
       webkit: {
         messageHandlers: {
           nativeApp: {
-            postMessage: Function;
+            postMessage: (params: HybridMessage) => void;
           };
         };
       };
       nativeApp: {
-        sendToNative: Function;
+        sendToNative: (params: string) => void;
       };
       webApp: NativeInterface;
     }
@@ -53,10 +53,8 @@ class Adapter {
   }
 
   public connect(): void {
-    const { eventEmitter } = this;
-
     global.webApp = new NativeInterface({
-      eventEmitter
+      eventEmitter: this.eventEmitter
     });
   }
 }

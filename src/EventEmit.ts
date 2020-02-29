@@ -5,7 +5,7 @@ class EventEmit {
     this.listener = {};
   }
 
-  public on(eventName, handler): void {
+  public on(eventName: string, handler: Function): void {
     this.listener[eventName] = this.listener[eventName] || [];
     this.listener[eventName].push(handler);
   }

@@ -3,7 +3,8 @@
     "outDir": "./built",
     "allowJs": true,
     "target": "es5",
-    "types": ["node"]
+    "types": ["node"],
+    "esModuleInterop": true,
   },
   "include": ["./src/**/*"]
 }

@@ -1,6 +1,6 @@
 import { Promise } from "es6-promise";
+import uuid from "uuid/v4";
 
-import * as uuid from "uuid/v4";
 import Adapter from "./Adaper";
 
 type UnListenFunction = Function;
@@ -13,7 +13,7 @@ class Bridge {
     this.adapter.connect();
   }
 
-  public dispatch(event: string, params): Promise<any> {
+  public dispatch(event: string, params: any): Promise<any> {
     const id = uuid();
     const [module, action] = event.split("/");
 

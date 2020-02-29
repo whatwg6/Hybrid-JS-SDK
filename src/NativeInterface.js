@@ -1,7 +1,5 @@
-const uuid = require("uuid/v4");
-
 class NativeInterface {
-  constructor({ eventEmitter, listeners }) {
+  constructor({ eventEmitter }) {
     this.eventEmitter = eventEmitter;
   }
 

@@ -1,3 +1,4 @@
+//simulate the client environment
 global.webkit = global.webkit || {};
 global.webkit.messageHandlers = global.webkit.messageHandlers || {};
 global.webkit.messageHandlers.nativeApp =

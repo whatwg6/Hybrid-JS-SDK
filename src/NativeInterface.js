@@ -1,41 +1,47 @@
-const uuid = require('uuid/v4')
+const uuid = require("uuid/v4");
 
 class NativeInterface {
-  constructor ({ messagesObserver, listeners }) {
-    this.messagesObserver = messagesObserver
-    this.listeners = listeners
+  constructor({ eventEmitter, listeners }) {
+    this.eventEmitter = eventEmitter;
+    this.listeners = listeners;
   }
 
-  dispatch (action, params) {
-    return new Promise((resolve, reject) => {
-      const id = uuid()
-      const actionListeners = this.listeners[action]
+  dispatch(event, params) {
+    const eventListeners = this.listeners[event];
 
-      if (actionListeners && actionListeners.length) {
-        actionListeners.forEach(listener => {
-          listener(params)
-          resolve({
-            id,
-            status: `web receive ${action} success`
-          })
-        })
-      } else {
-        reject({
-          id,
-          status: `web unregister ${action}`
-        })
-      }
-    })
-  }
-
-  callBack (id, params) {
-    this.messagesObserver[id] = {
-      id,
-      payload: {
-        params
-      }
+    if (eventListeners && eventListeners.length) {
+      eventListeners.forEach(listener => {
+        listener(params);
+      });
     }
+    // return new Promise((resolve, reject) => {
+    //   const id = uuid();
+    //   const eventListeners = this.listeners[event];
+
+    //   if (eventListeners && eventListeners.length) {
+    //     eventListeners.forEach(listener => {
+    //       listener(params);
+    //       resolve();
+    //     });
+    //   } else {
+    //     reject({
+    //       id,
+    //       status: `web unregister ${event}`
+    //     });
+    //   }
+    // });
+  }
+
+  callBack(id, params) {
+    this.eventEmitter.emit("____messagesEvent", {
+      [id]: {
+        payload: {
+          params
+        }
+      }
+    });
+    // return Promise.resolve();
   }
 }
 
-module.exports = NativeInterface
+module.exports = NativeInterface;

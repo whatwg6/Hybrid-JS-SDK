@@ -21,18 +21,14 @@ Web define two methods to window:
 - Web dispatch `module/action`
 
 ```js
-hybrid
-  .dispatch("base/openURL", { url: "url" })
-  .then(({ status }) => console.log(`openURL`, status))
-  .catch(err => console.log(`openURL`, err));
+hybrid.dispatch(event, params);
 ```
 
 - Native callBack `module/action`
 
 ```js
 setTimeout(() => {
-  webApp.callBack("1", { status: "success" });
-  webApp.callBack("2", { status: "fail" });
+  webApp.callBack(eventId, params);
 });
 ```
 
@@ -41,18 +37,13 @@ setTimeout(() => {
 - Web subscribe `module/action`
 
 ```js
-const unsubscribe = hybrid.listen("base/themeChange", ({ theme }) =>
-  console.log(`theme is ${theme}`)
-);
+const unsubscribe = hybrid.listen(event, callback);
 ```
 
 - Native publish `module/action`
 
 ```js
-webApp
-  .dispatch("base/themeChange", { theme: "light" })
-  .then(success => console.log(success))
-  .catch(err => console.log(err));
+webApp.dispatch(event, params);
 ```
 
 - unsubscribe `module/action`
@@ -63,12 +54,10 @@ unsubscribe()
 
 ## Preview
 
-- vscode debug [file](https://github.com/77xi/Hybrid/blob/master/examples/index.js)
+- Vscode debug [file](https://github.com/77xi/Hybrid/blob/master/examples/index.js)
 
 ## TODO
 
-- [ ] ...
-
 ## Others
 
-- PR thanks
+- PR thanks!

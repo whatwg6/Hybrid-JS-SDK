@@ -1,49 +1,42 @@
-const EventEmitter = require('eventemitter3')
-const NativeInterface = require('./NativeInterface')
+const EventEmitter = require("eventemitter3");
+const NativeInterface = require("./NativeInterface");
 
 class Adapter {
-  constructor () {
-    this.listeners = {}
-    this.messages = {}
-    this.eventEmitter = new EventEmitter()
-    this.messagesObserver = new Proxy(this.messages, {
-      set: (target, key, value, receiver) => {
-        const result = Reflect.set(target, key, value, receiver)
-        this.eventEmitter.emit('messagesObserver', {
-          messages: this.messages
-        })
-        return result
-      }
-    })
+  constructor() {
+    this.listeners = {};
+    this.messages = {};
+    this.eventEmitter = new EventEmitter();
   }
 
-  postMessage ({ id, payload: { action, params } }) {
+  postMessage({ id, payload: { action, module, params } }) {
     const hybridMessage = {
       id,
+      module,
       action,
       params
-    }
+    };
 
     if (
       global.webkit &&
       global.webkit.messageHandlers &&
       global.webkit.messageHandlers.nativeApp
     ) {
-      global.webkit.messageHandlers.nativeApp.postMessage(hybridMessage)
+      global.webkit.messageHandlers.nativeApp.postMessage(
+        hybridMessage
+      );
     } else if (global.nativeApp && global.nativeApp.sendToNative) {
-      global.nativeApp.sendToNative(JSON.stringify(hybridMessage))
+      global.nativeApp.sendToNative(JSON.stringify(hybridMessage));
     }
   }
 
-  connect () {
-    const { messagesObserver, eventEmitter, listeners } = this
+  connect() {
+    const { eventEmitter, listeners } = this;
 
     global.webApp = new NativeInterface({
-      messagesObserver,
       eventEmitter,
       listeners
-    })
+    });
   }
 }
 
-module.exports = Adapter
+module.exports = Adapter;

@@ -59,6 +59,8 @@ unsubscribe1()
 
 ## Preview
 
+- yarn && yarn start
+
 Vscode debug
 
 - [examples/index.js](./examples/index.js)

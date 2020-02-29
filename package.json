@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/77xi/Hybrid-JS-SDK.git"
+    "url": "git+https://github.com/0x0006e/Hybrid-JS-SDK.git"
   },
-  "author": "yxuchen",
+  "author": "0x000fe",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/77xi/Hybrid-JS-SDK/issues"
+    "url": "https://github.com/0x0006e/Hybrid-JS-SDK/issues"
   },
-  "homepage": "https://github.com/77xi/Hybrid-JS-SDK#readme",
+  "homepage": "https://github.com/0x0006e/Hybrid-JS-SDK#readme",
   "dependencies": {
     "uuid": "^3.3.2"
   }

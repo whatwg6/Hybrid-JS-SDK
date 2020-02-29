@@ -18,6 +18,8 @@ Web define two methods to window:
 
 ### Web -> Native
 
+[examples/index.js](./examples/index.js)
+
 - Web dispatch `module/action`
 
 ```js
@@ -33,6 +35,8 @@ setTimeout(() => {
 ```
 
 ### Native -> Web
+
+[examples/nativeSimulator.js](./examples/nativeSimulator.js)
 
 - Web subscribe `module/action`
 
@@ -57,7 +61,6 @@ unsubscribe()
 Vscode debug
 
 - [examples/index.js](./examples/index.js)
-- [examples/nativeSimulator.js](./examples/nativeSimulator.js)
 
 ## TODO
 

@@ -1,4 +1,4 @@
-const EventEmitter = require("eventemitter3");
+const EventEmitter = require("./EventEmit");
 const NativeInterface = require("./NativeInterface");
 
 class Adapter {

@@ -1,54 +1,52 @@
-const uuid = require('uuid/v4')
+const uuid = require("uuid/v4");
 
 class Bridge {
-  constructor (adapter) {
-    this.adapter = adapter
-    this.adapter.connect()
+  constructor(adapter) {
+    this.adapter = adapter;
+    this.adapter.connect();
   }
 
-  onCallback (id) {
-    return new Promise((resolve, reject) => {
-      this.adapter.eventEmitter.on('messagesObserver', ({ messages }) => {
-        const message = messages[id]
-        if (message) {
-          resolve(message.payload.params)
-        }
-        reject({ messages, id })
-      })
-    })
-  }
-
-  dispatch (action, params) {
-    const id = 1 // uuid()
-
+  dispatch(event, params) {
+    const id = uuid();
+    const [module, action] = event.split("/");
+    
     this.adapter.postMessage({
       id,
       payload: {
         action,
+        module,
         params
       }
-    })
+    });
 
-    return this.onCallback(id)
+    return new Promise((resolve, reject) =>
+      this.adapter.eventEmitter.on("____messagesEvent", messages => {
+        const message = messages[id];
+
+        if (message) {
+          resolve(message.payload.params);
+        }
+        reject({ messages, id });
+      })
+    );
   }
 
-  listen (action, handler) {
-    const listeners = this.adapter.listeners
+  listen(event, handler) {
+    const listeners = this.adapter.listeners;
 
-    if (!listeners[action]) {
-      listeners[action] = []
+    if (!listeners[event]) {
+      listeners[event] = [];
     }
 
-    listeners[action].push(handler)
+    listeners[event].push(handler);
 
     return () => {
-      listeners[action].splice(
-        listeners[action].findIndex(listen => listen === handler),
+      listeners[event].splice(
+        listeners[event].findIndex(listen => listen === handler),
         1
-      )
-      console.log(`unscribe ${action}`)
-    }
+      );
+    };
   }
 }
 
-module.exports = Bridge
+module.exports = Bridge;

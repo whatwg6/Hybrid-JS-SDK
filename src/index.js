@@ -1,16 +1,18 @@
-const Adaper = require('./Adaper')
-const Bridge = require('./Bridge')
+const Adaper = require("./Adaper");
+const Bridge = require("./Bridge");
 
-const adaper = new Adaper()
-const bridge = new Bridge(adaper)
+const adaper = new Adaper();
+const bridge = new Bridge(adaper);
 
-const dispatch = (action, ...args) => bridge.dispatch(action, ...args)
-const listen = (action, ...args) => bridge.listen(action, ...args)
+const dispatch = (action, ...args) =>
+  bridge.dispatch(action, ...args);
+const listen = (action, ...args) => bridge.listen(action, ...args);
+
+require("../examples/nativeSimulator");
 
 const hybrid = {
   dispatch,
   listen
-}
+};
 
-module.exports = hybrid
-
+module.exports = hybrid;

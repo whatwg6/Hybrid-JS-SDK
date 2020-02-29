@@ -3,17 +3,10 @@ const uuid = require("uuid/v4");
 class NativeInterface {
   constructor({ eventEmitter, listeners }) {
     this.eventEmitter = eventEmitter;
-    this.listeners = listeners;
   }
 
   dispatch(event, params) {
-    const eventListeners = this.listeners[event];
-
-    if (eventListeners && eventListeners.length) {
-      eventListeners.forEach(listener => {
-        listener(params);
-      });
-    }
+    this.eventEmitter.emit(event, params);
     // return new Promise((resolve, reject) => {
     //   const id = uuid();
     //   const eventListeners = this.listeners[event];

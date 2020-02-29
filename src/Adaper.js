@@ -3,8 +3,6 @@ const NativeInterface = require("./NativeInterface");
 
 class Adapter {
   constructor() {
-    this.listeners = {};
-    this.messages = {};
     this.eventEmitter = new EventEmitter();
   }
 
@@ -30,11 +28,10 @@ class Adapter {
   }
 
   connect() {
-    const { eventEmitter, listeners } = this;
+    const { eventEmitter } = this;
 
     global.webApp = new NativeInterface({
-      eventEmitter,
-      listeners
+      eventEmitter
     });
   }
 }

@@ -7,5 +7,7 @@ hybrid
   .catch(console.error);
 
 // web -> native -> web
-const unsubscribe = hybrid.listen("base/themeChange", console.log);
-// unsubscribe();
+const unsubscribe1 = hybrid.listen("base/themeChange", console.log);
+const unsubscribe2 = hybrid.listen("base/themeChange", console.log);
+
+unsubscribe2();

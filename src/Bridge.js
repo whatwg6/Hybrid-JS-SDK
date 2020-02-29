@@ -9,7 +9,7 @@ class Bridge {
   dispatch(event, params) {
     const id = uuid();
     const [module, action] = event.split("/");
-    
+
     this.adapter.postMessage({
       id,
       payload: {
@@ -32,20 +32,11 @@ class Bridge {
   }
 
   listen(event, handler) {
-    const listeners = this.adapter.listeners;
+    const wrapHandler = args => handler(args);
 
-    if (!listeners[event]) {
-      listeners[event] = [];
-    }
+    this.adapter.eventEmitter.on(event, wrapHandler);
 
-    listeners[event].push(handler);
-
-    return () => {
-      listeners[event].splice(
-        listeners[event].findIndex(listen => listen === handler),
-        1
-      );
-    };
+    return () => this.adapter.eventEmitter.remove(event, wrapHandler);
   }
 }
 

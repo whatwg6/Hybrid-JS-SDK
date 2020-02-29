@@ -41,7 +41,8 @@ setTimeout(() => {
 - Web subscribe `module/action`
 
 ```js
-const unsubscribe = hybrid.listen(event, callback);
+const unsubscribe1 = hybrid.listen(event, callback);
+const unsubscribe2 = hybrid.listen(event, callback);
 ```
 
 - Native publish `module/action`
@@ -53,7 +54,7 @@ webApp.dispatch(event, params).then(console.log);
 - unsubscribe `module/action`
 
 ```
-unsubscribe()
+unsubscribe1()
 ```
 
 ## Preview

@@ -1,8 +1,8 @@
 // native inject js into webview
-require("./nativeSimulator");
+import "./nativeSimulator";
 
 // webviwe import hybrid js sdk
-const hybrid = require("../built").default;
+import hybrid from "../src";
 
 // web -> native
 hybrid

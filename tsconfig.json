@@ -1,10 +1,13 @@
 {
   "compilerOptions": {
-    "outDir": "./built",
+    "outDir": "./build",
     "allowJs": true,
     "target": "es5",
+    "module": "commonjs",
     "types": ["node"],
     "esModuleInterop": true,
+    "sourceMap": true,
+    "typeRoots": ["./types"]
   },
-  "include": ["./src/**/*"]
+  "include": ["./src/**/*", "./examples/**/*", "./types"]
 }

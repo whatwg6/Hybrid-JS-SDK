@@ -1,4 +1,4 @@
-//simulate the client environment
+// simulate the client environment
 global.webkit = global.webkit || {};
 global.webkit.messageHandlers = global.webkit.messageHandlers || {};
 global.webkit.messageHandlers.nativeApp =
@@ -12,7 +12,7 @@ global.webkit.messageHandlers.nativeApp.postMessage = function({
 }) {
   if (module === "base" && action === "openURL") {
     setTimeout(() =>
-      webApp.callBack(id, {
+      global.webApp.callBack(id, {
         status: "base/openURL success",
         module,
         action,
@@ -23,5 +23,5 @@ global.webkit.messageHandlers.nativeApp.postMessage = function({
 };
 
 setTimeout(() =>
-  webApp.dispatch("base/themeChange", { theme: "light" })
+  global.webApp.dispatch("base/themeChange", { theme: "light" })
 );

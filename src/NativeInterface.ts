@@ -1,7 +1,5 @@
 import EventEmit from "./EventEmit";
 
-import { messageEvent } from "./constant";
-
 class NativeInterface {
   constructor(readonly eventEmitter: EventEmit) {}
 
@@ -10,7 +8,7 @@ class NativeInterface {
   }
 
   public callBack(id: string, params: any): void {
-    this.eventEmitter.emit(messageEvent, {
+    this.eventEmitter.emit(id, {
       [id]: {
         payload: {
           params

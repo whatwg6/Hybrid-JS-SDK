@@ -15,7 +15,8 @@ global.webkit.messageHandlers.nativeApp.postMessage = function({
       webApp.callBack(id, {
         status: "base/openURL success",
         module,
-        action
+        action,
+        ...params
       })
     );
   }

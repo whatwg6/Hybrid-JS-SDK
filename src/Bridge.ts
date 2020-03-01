@@ -3,7 +3,6 @@ import { Promise } from "es6-promise";
 import Adapter from "./Adaper";
 
 import { generateId } from "./util";
-import { messageEvent } from "./constant";
 
 type UnListenFunction = Function;
 
@@ -26,14 +25,17 @@ class Bridge {
     });
 
     return new Promise((resolve, reject) =>
-      this.adapter.eventEmitter.on(messageEvent, messages => {
-        const message = messages[id];
+      this.adapter.eventEmitter.on(
+        id,
+        (messages: { [key: string]: any }) => {
+          const message = messages[id];
 
-        if (message) {
-          resolve(message.payload.params);
+          if (message) {
+            resolve(message.payload.params);
+          }
+          reject({ messages, id });
         }
-        reject({ messages, id });
-      })
+      )
     );
   }
 

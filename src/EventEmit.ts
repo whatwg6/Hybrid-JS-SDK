@@ -6,7 +6,7 @@ class EventEmit {
     this.listener[eventName].push(handler);
   }
 
-  public emit(eventName: string, params): void {
+  public emit(eventName: string, params: any): void {
     this.listener[eventName] = this.listener[eventName] || [];
     this.listener[eventName].forEach(f => f(params));
   }

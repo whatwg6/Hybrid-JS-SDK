@@ -5,7 +5,7 @@ type Message = {
   payload: {
     module: string;
     action: string;
-    params: any;
+    params?: any;
   };
 };
 
@@ -13,7 +13,7 @@ type HybridMessage = {
   id: Id;
   module: string;
   action: string;
-  params: any;
+  params?: any;
 };
 
 export { Message, HybridMessage };

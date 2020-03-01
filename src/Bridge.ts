@@ -1,7 +1,9 @@
 import { Promise } from "es6-promise";
-import uuid from "uuid/v4";
 
 import Adapter from "./Adaper";
+
+import { generateId } from "./util";
+import { messageEvent } from "./constant";
 
 type UnListenFunction = Function;
 
@@ -11,7 +13,7 @@ class Bridge {
   }
 
   public dispatch(event: string, params: any): Promise<any> {
-    const id = uuid();
+    const id = generateId();
     const [module, action] = event.split("/");
 
     this.adapter.postMessage({
@@ -24,7 +26,7 @@ class Bridge {
     });
 
     return new Promise((resolve, reject) =>
-      this.adapter.eventEmitter.on("____messagesEvent", messages => {
+      this.adapter.eventEmitter.on(messageEvent, messages => {
         const message = messages[id];
 
         if (message) {
@@ -36,7 +38,7 @@ class Bridge {
   }
 
   public listen(event: string, handler: Function): UnListenFunction {
-    const wrapHandler = args => handler(args);
+    const wrapHandler: Function = (args: any) => handler(args);
 
     this.adapter.eventEmitter.on(event, wrapHandler);
 

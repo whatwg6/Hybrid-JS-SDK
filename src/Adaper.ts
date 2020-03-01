@@ -51,6 +51,10 @@ class Adapter {
   public connect(): void {
     global.webApp = new NativeInterface(this.eventEmitter);
   }
+
+  public disconnect(): void {
+    global.webApp = void 0;
+  }
 }
 
 export default Adapter;

@@ -7,7 +7,6 @@
     "types": ["node"],
     "esModuleInterop": true,
     "sourceMap": true,
-    "typeRoots": ["./types"]
   },
   "include": ["./src/**/*", "./examples/**/*", "./types"]
 }

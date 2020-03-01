@@ -1,4 +1,5 @@
 import EventEmit from "./EventEmit";
+
 class NativeInterface {
   constructor(readonly eventEmitter: EventEmit) {}
 

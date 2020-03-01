@@ -1,9 +1,5 @@
 class EventEmit {
-  private listener: {};
-
-  constructor() {
-    this.listener = {};
-  }
+  constructor(private listener = {}) {}
 
   public on(eventName: string, handler: Function): void {
     this.listener[eventName] = this.listener[eventName] || [];

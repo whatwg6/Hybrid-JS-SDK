@@ -6,10 +6,7 @@ import Adapter from "./Adaper";
 type UnListenFunction = Function;
 
 class Bridge {
-  readonly adapter: Adapter;
-
-  constructor(adapter: Adapter) {
-    this.adapter = adapter;
+  constructor(readonly adapter: Adapter) {
     this.adapter.connect();
   }
 

@@ -1,7 +1,10 @@
 import Adaper from "./Adaper";
 import Bridge from "./Bridge";
 
-const adaper = new Adaper();
+import EventEmitter from "./EventEmit";
+
+const eventEmit = new EventEmitter();
+const adaper = new Adaper(eventEmit);
 const bridge = new Bridge(adaper);
 
 const dispatch = (action, args) => bridge.dispatch(action, args);

@@ -22,11 +22,7 @@ declare global {
 }
 
 class Adapter {
-  readonly eventEmitter: EventEmitter;
-
-  constructor() {
-    this.eventEmitter = new EventEmitter();
-  }
+  constructor(readonly eventEmitter: EventEmitter) {}
 
   public postMessage({
     id,
@@ -53,9 +49,7 @@ class Adapter {
   }
 
   public connect(): void {
-    global.webApp = new NativeInterface({
-      eventEmitter: this.eventEmitter
-    });
+    global.webApp = new NativeInterface(this.eventEmitter);
   }
 }
 

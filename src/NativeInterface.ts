@@ -1,9 +1,6 @@
+import EventEmit from "./EventEmit";
 class NativeInterface {
-  readonly eventEmitter;
-
-  constructor({ eventEmitter }) {
-    this.eventEmitter = eventEmitter;
-  }
+  constructor(readonly eventEmitter: EventEmit) {}
 
   public dispatch(event: string, params: any): void {
     this.eventEmitter.emit(event, params);

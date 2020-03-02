@@ -18,7 +18,7 @@ Web define two methods to window:
 
 ### Web -> Native
 
-[examples/index.js](./examples/index.ts)
+[examples/index.ts](./examples/index.ts)
 
 - Web dispatch `module/action`
 
@@ -36,7 +36,7 @@ setTimeout(() => {
 
 ### Native -> Web
 
-[examples/nativeSimulator.js](./examples/nativeSimulator.ts)
+[examples/nativeSimulator.ts](./examples/nativeSimulator.ts)
 
 - Web subscribe `module/action`
 
@@ -61,9 +61,11 @@ unsubscribe1()
 
 Vscode debug
 
-- [examples/index.js](./examples/index.ts)
+- [examples/index.ts](./examples/index.ts)
 
 ## TODO
+
+- inject order
 
 ## Others
 

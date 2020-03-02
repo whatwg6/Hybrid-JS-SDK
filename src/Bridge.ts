@@ -7,7 +7,7 @@ import { generateId } from "./util";
 type UnListenFunction = Function;
 
 class Bridge {
-  constructor(readonly adapter: Adapter) {
+  constructor(private readonly adapter: Adapter) {
     this.adapter.connect();
   }
 
@@ -24,6 +24,10 @@ class Bridge {
       }
     });
 
+    return this.onDispatch(id);
+  }
+
+  private onDispatch(id: string) {
     return new Promise((resolve, reject) =>
       this.adapter.eventEmitter.on(
         id,
@@ -44,7 +48,11 @@ class Bridge {
 
     this.adapter.eventEmitter.on(event, wrapHandler);
 
-    return () => this.adapter.eventEmitter.remove(event, wrapHandler);
+    return () => this.unListen(event, wrapHandler);
+  }
+
+  private unListen(event: string, handler: Function): void {
+    this.adapter.eventEmitter.remove(event, handler);
   }
 }
 

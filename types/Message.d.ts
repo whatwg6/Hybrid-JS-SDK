@@ -1,7 +1,7 @@
 type Id = string;
 
 type Message = {
-  id: Id;
+  readonly id: Id;
   payload: {
     module: string;
     action: string;
@@ -10,7 +10,7 @@ type Message = {
 };
 
 type HybridMessage = {
-  id: Id;
+  readonly id: Id;
   module: string;
   action: string;
   params?: any;

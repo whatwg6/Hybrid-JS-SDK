@@ -2,7 +2,7 @@ import { Promise } from "es6-promise";
 
 import Adapter from "./Adaper";
 
-import { generateId } from "./util";
+import { generateId } from "../util";
 
 type UnListenFunction = Function;
 

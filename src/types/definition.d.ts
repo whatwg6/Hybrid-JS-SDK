@@ -1,5 +1,5 @@
 import { HybridMessage } from "./Message";
-import NativeInterface from "../src/NativeInterface";
+import NativeInterface from "../core/NativeInterface";
 
 declare global {
   namespace NodeJS {

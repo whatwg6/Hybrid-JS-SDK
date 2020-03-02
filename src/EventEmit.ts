@@ -1,6 +1,4 @@
-type Listener = {
-  [key: string]: Function[];
-};
+import { Listener } from "../types/EventEmit";
 
 class EventEmit {
   private listener: Listener = {};
@@ -11,14 +9,16 @@ class EventEmit {
   }
 
   public emit(eventName: string, params: any): void {
-    this.listener[eventName] = this.listener[eventName] || [];
-    this.listener[eventName].forEach(f => f(params));
+    if (this.listener[eventName]) {
+      this.listener[eventName].forEach(f => f(params));
+    }
   }
 
   public remove(eventName: string, handler: Function): void {
-    const listeners = this.listener[eventName];
-    if (listeners && listeners.length) {
-      listeners.splice(listeners.indexOf(handler), 1);
+    if (this.listener[eventName]) {
+      this.listener[eventName] = this.listener[eventName].filter(
+        f => f !== handler
+      );
     }
   }
 }

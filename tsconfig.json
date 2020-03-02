@@ -6,7 +6,8 @@
     "module": "commonjs",
     "types": ["node"],
     "esModuleInterop": true,
-    "sourceMap": true,
+    "sourceMap": true
   },
-  "include": ["./src/**/*", "./examples/**/*", "./types"]
+  "include": ["./src/**/*.ts", "./examples/**/*.ts"],
+  "typeRoots": ["./node_modules/@types", "./src/types"]
 }

@@ -1,7 +1,7 @@
-import Adaper from "./Adaper";
-import Bridge from "./Bridge";
+import Adaper from "./core/Adaper";
+import Bridge from "./core/Bridge";
 
-import EventEmitter from "./EventEmit";
+import EventEmitter from "./core/EventEmit";
 
 const eventEmit = new EventEmitter();
 

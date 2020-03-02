@@ -18,8 +18,7 @@ class EventEmit {
   public remove(eventName: string, handler: Function): void {
     const listeners = this.listener[eventName];
     if (listeners && listeners.length) {
-      const findIndex = listeners.findIndex(f => f === handler);
-      listeners.splice(findIndex, 1);
+      listeners.splice(listeners.indexOf(handler), 1);
     }
   }
 }

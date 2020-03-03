@@ -1,3 +1,5 @@
+import { HybridEvent } from "./enum";
+
 // simulate Native injcet js
 global.webkit = global.webkit || {};
 global.webkit.messageHandlers = global.webkit.messageHandlers || {};
@@ -10,7 +12,10 @@ global.webkit.messageHandlers.nativeApp.postMessage = function({
   action,
   params
 }) {
-  if (module === "base" && action === "openURL") {
+  if (
+    module === HybridEvent.BaseModule &&
+    action === HybridEvent.Action
+  ) {
     setTimeout(() =>
       global.webApp.callBack(id, {
         status: "base/openURL success",

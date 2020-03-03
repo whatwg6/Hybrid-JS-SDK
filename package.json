@@ -6,7 +6,7 @@
   "typings": "build/index.d.ts",
   "scripts": {
     "start": "tsc -w",
-    "build": "tsc",
+    "build": "tsc && cd ./examples && yarn build",
     "postversion": "git push && git push --tags",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

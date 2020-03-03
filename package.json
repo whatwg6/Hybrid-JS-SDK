@@ -4,9 +4,7 @@
   "description": "Hybrid-JS-SDK",
   "main": "./build/index.js",
   "typings": "./types/index.d.ts",
-  "files": [
-    "./build"
-  ],
+  "files": [],
   "scripts": {
     "start": "tsc -w",
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -3,20 +3,20 @@ import { Listener } from "../../types/EventEmit";
 class EventEmit {
   private listener: Listener = {};
 
-  public on(eventName: string, handler: Function): void {
-    this.listener[eventName] = this.listener[eventName] || [];
-    this.listener[eventName].push(handler);
+  public on(event: string, handler: Function): void {
+    this.listener[event] = this.listener[event] || [];
+    this.listener[event].push(handler);
   }
 
-  public emit(eventName: string, params: any): void {
-    if (this.listener[eventName]) {
-      this.listener[eventName].forEach(f => f(params));
+  public emit(event: string, params: any): void {
+    if (this.listener[event]) {
+      this.listener[event].forEach(f => f(params));
     }
   }
 
-  public remove(eventName: string, handler: Function): void {
-    if (this.listener[eventName]) {
-      this.listener[eventName] = this.listener[eventName].filter(
+  public remove(event: string, handler: Function): void {
+    if (this.listener[event]) {
+      this.listener[event] = this.listener[event].filter(
         f => f !== handler
       );
     }

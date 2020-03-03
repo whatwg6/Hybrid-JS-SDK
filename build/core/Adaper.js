@@ -9,23 +9,16 @@ var Adapter = (function () {
     function Adapter(eventEmitter) {
         this.eventEmitter = eventEmitter;
     }
-    Adapter.prototype.postMessage = function (_a) {
-        var id = _a.id, _b = _a.payload, action = _b.action, module = _b.module, params = _b.params;
-        var hybridMessage = {
-            id: id,
-            module: module,
-            action: action,
-            params: params
-        };
+    Adapter.prototype.postMessage = function (dispatchMessage) {
         if (global.webkit &&
             global.webkit.messageHandlers &&
             global.webkit.messageHandlers.nativeApp &&
             util_1.isFunction(global.webkit.messageHandlers.nativeApp.postMessage)) {
-            global.webkit.messageHandlers.nativeApp.postMessage(hybridMessage);
+            global.webkit.messageHandlers.nativeApp.postMessage(dispatchMessage);
         }
         else if (global.nativeApp &&
             util_1.isFunction(global.nativeApp.sendToNative)) {
-            global.nativeApp.sendToNative(JSON.stringify(hybridMessage));
+            global.nativeApp.sendToNative(JSON.stringify(dispatchMessage));
         }
     };
     Adapter.prototype.connect = function () {

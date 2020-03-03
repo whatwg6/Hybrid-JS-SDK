@@ -1,4 +1,10 @@
 // simulate Native injcet js
+import { StatusLevel } from "../../types/Message";
+
+import handleBaseAction from "./handleBaseAction";
+import handleAnswerAction from "./handleAnswerAction";
+import handleCallBack from "./handleCallBack";
+
 function simulator(): void {
   global.webkit = global.webkit || {};
   global.webkit.messageHandlers = global.webkit.messageHandlers || {};
@@ -7,25 +13,22 @@ function simulator(): void {
 
   global.webkit.messageHandlers.nativeApp.postMessage = function({
     id,
-    module,
-    action,
-    params
+    payload: { module, action, params }
   }) {
-    if (module === "base" && action === "openURL") {
-      setTimeout(() =>
-        global.webApp.callBack(id, {
-          status: "base/openURL success",
-          module,
-          action,
-          ...params
-        })
-      );
+    switch (module) {
+      case "base": {
+        handleBaseAction(id, action);
+        break;
+      }
+
+      case "answer": {
+        handleAnswerAction(id, action);
+        break;
+      }
     }
   };
 
-  setTimeout(() =>
-    global.webApp.dispatch("base/themeChange", { theme: "light" })
-  );
+  handleCallBack();
 }
 
 export default simulator;

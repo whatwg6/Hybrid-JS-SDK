@@ -5,17 +5,12 @@ var NativeInterface = (function () {
         this.eventEmitter = eventEmitter;
     }
     NativeInterface.prototype.dispatch = function (event, params) {
+        if (params === void 0) { params = void 0; }
         this.eventEmitter.emit(event, params);
     };
-    NativeInterface.prototype.callBack = function (id, params) {
-        var _a;
-        this.eventEmitter.emit(id, (_a = {},
-            _a[id] = {
-                payload: {
-                    params: params
-                }
-            },
-            _a));
+    NativeInterface.prototype.callBack = function (callbackMessage) {
+        var id = callbackMessage.id;
+        this.eventEmitter.emit(id, callbackMessage);
     };
     return NativeInterface;
 }());

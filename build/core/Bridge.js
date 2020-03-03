@@ -7,6 +7,7 @@ var Bridge = (function () {
         this.adapter.connect();
     }
     Bridge.prototype.dispatch = function (event, params) {
+        if (params === void 0) { params = void 0; }
         var id = util_1.generateId();
         var _a = event.split("/"), module = _a[0], action = _a[1];
         this.adapter.postMessage({
@@ -22,12 +23,19 @@ var Bridge = (function () {
     Bridge.prototype.onDispatch = function (id) {
         var _this = this;
         return new Promise(function (resolve, reject) {
-            return _this.adapter.eventEmitter.on(id, function (messages) {
-                var message = messages[id];
-                if (message) {
-                    resolve(message.payload.params);
+            return _this.adapter.eventEmitter.on(id, function (message) {
+                try {
+                    var payload = message.payload, status_1 = message.payload.status;
+                    if (status_1 === "Failure") {
+                        throw payload;
+                    }
+                    else {
+                        resolve(payload);
+                    }
                 }
-                reject({ messages: messages, id: id });
+                catch (e) {
+                    reject(e);
+                }
             });
         });
     };

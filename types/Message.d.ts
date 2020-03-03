@@ -1,19 +1,40 @@
+export const enum StatusLevel {
+  Success = "Success",
+  Failure = "Failure"
+}
+
+export type StatusString = keyof typeof StatusLevel;
+
 type Id = string;
 
-type Message = {
-  readonly id: Id;
-  payload: {
-    module: string;
-    action: string;
-    params?: any;
-  };
+type CallbackPayload = {
+  status: StatusString;
+  params?: any;
 };
 
-type HybridMessage = {
-  readonly id: Id;
+type DispatchPayload = {
   module: string;
   action: string;
   params?: any;
 };
 
-export { Message, HybridMessage };
+type DispatchMessage = {
+  readonly id: Id;
+  payload: DispatchPayload;
+};
+
+type CallbackMessage = {
+  readonly id: Id;
+  payload: CallbackPayload;
+};
+
+type Message = DispatchMessage | CallbackMessage;
+
+export {
+  Id,
+  DispatchMessage,
+  CallbackMessage,
+  CallbackPayload,
+  DispatchPayload
+};
+export default Message;

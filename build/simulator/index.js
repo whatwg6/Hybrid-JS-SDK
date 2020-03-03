@@ -1,32 +1,29 @@
 "use strict";
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var handleBaseAction_1 = __importDefault(require("./handleBaseAction"));
+var handleAnswerAction_1 = __importDefault(require("./handleAnswerAction"));
+var handleCallBack_1 = __importDefault(require("./handleCallBack"));
 function simulator() {
     global.webkit = global.webkit || {};
     global.webkit.messageHandlers = global.webkit.messageHandlers || {};
     global.webkit.messageHandlers.nativeApp =
         global.webkit.messageHandlers.nativeApp || {};
     global.webkit.messageHandlers.nativeApp.postMessage = function (_a) {
-        var id = _a.id, module = _a.module, action = _a.action, params = _a.params;
-        if (module === "base" && action === "openURL") {
-            setTimeout(function () {
-                return global.webApp.callBack(id, __assign({ status: "base/openURL success", module: module,
-                    action: action }, params));
-            });
+        var id = _a.id, _b = _a.payload, module = _b.module, action = _b.action, params = _b.params;
+        switch (module) {
+            case "base": {
+                handleBaseAction_1.default(id, action);
+                break;
+            }
+            case "answer": {
+                handleAnswerAction_1.default(id, action);
+                break;
+            }
         }
     };
-    setTimeout(function () {
-        return global.webApp.dispatch("base/themeChange", { theme: "light" });
-    });
+    handleCallBack_1.default();
 }
 exports.default = simulator;

@@ -1,6 +1,6 @@
 import simulator from "./simulator";
 declare const hybrid: {
-    dispatch: (action: string, args?: any) => Promise<any>;
+    dispatch: (action: string, args?: any) => Promise<import("../types/Message").CallbackPayload>;
     listen: (action: string, args: Function) => Function;
 };
 export { simulator };

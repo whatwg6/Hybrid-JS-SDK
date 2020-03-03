@@ -1,4 +1,4 @@
-import { HybridMessage } from "./Message";
+import { DispatchMessage } from "./Message";
 import NativeInterface from "../src/core/NativeInterface";
 
 declare global {
@@ -7,7 +7,7 @@ declare global {
       webkit?: {
         messageHandlers?: {
           nativeApp?: {
-            postMessage?: (params: HybridMessage) => void;
+            postMessage?: (params: DispatchMessage) => void;
           };
         };
       };

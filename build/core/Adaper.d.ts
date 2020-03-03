@@ -1,9 +1,9 @@
 import EventEmitter from "./EventEmit";
-import { Message } from "../../types/Message";
+import { DispatchMessage } from "../../types/Message";
 declare class Adapter {
     readonly eventEmitter: EventEmitter;
     constructor(eventEmitter: EventEmitter);
-    postMessage({ id, payload: { action, module, params } }: Message): void;
+    postMessage(dispatchMessage: DispatchMessage): void;
     connect(): void;
     disconnect(): void;
 }

@@ -1,6 +1,11 @@
 import Adapter from "./Adaper";
 
 import { generateId } from "../util";
+import {
+  StatusLevel,
+  CallbackPayload,
+  CallbackMessage
+} from "../../types/Message";
 
 type UnListenFunction = Function;
 
@@ -9,7 +14,10 @@ class Bridge {
     this.adapter.connect();
   }
 
-  public dispatch(event: string, params: any): Promise<any> {
+  public dispatch(
+    event: string,
+    params: any = void 0
+  ): Promise<CallbackPayload> {
     const id = generateId();
     const [module, action] = event.split("/");
 
@@ -25,19 +33,24 @@ class Bridge {
     return this.onDispatch(id);
   }
 
-  private onDispatch(id: string) {
+  private onDispatch(id: string): Promise<CallbackPayload> {
     return new Promise((resolve, reject) =>
-      this.adapter.eventEmitter.on(
-        id,
-        (messages: { [key: string]: any }) => {
-          const message = messages[id];
+      this.adapter.eventEmitter.on(id, (message: CallbackMessage) => {
+        try {
+          const {
+            payload,
+            payload: { status }
+          } = message;
 
-          if (message) {
-            resolve(message.payload.params);
+          if (status === StatusLevel.Failure) {
+            throw payload;
+          } else {
+            resolve(payload);
           }
-          reject({ messages, id });
+        } catch (e) {
+          reject(e);
         }
-      )
+      })
     );
   }
 

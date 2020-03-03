@@ -1,23 +1,13 @@
 import EventEmitter from "./EventEmit";
 import NativeInterface from "./NativeInterface";
 
-import { Message } from "../../types/Message";
+import { DispatchMessage } from "../../types/Message";
 import { isFunction } from "../util";
 
 class Adapter {
   constructor(readonly eventEmitter: EventEmitter) {}
 
-  public postMessage({
-    id,
-    payload: { action, module, params }
-  }: Message): void {
-    const hybridMessage = {
-      id,
-      module,
-      action,
-      params
-    };
-
+  public postMessage(dispatchMessage: DispatchMessage): void {
     if (
       global.webkit &&
       global.webkit.messageHandlers &&
@@ -25,13 +15,13 @@ class Adapter {
       isFunction(global.webkit.messageHandlers.nativeApp.postMessage)
     ) {
       global.webkit.messageHandlers.nativeApp.postMessage(
-        hybridMessage
+        dispatchMessage
       );
     } else if (
       global.nativeApp &&
       isFunction(global.nativeApp.sendToNative)
     ) {
-      global.nativeApp.sendToNative(JSON.stringify(hybridMessage));
+      global.nativeApp.sendToNative(JSON.stringify(dispatchMessage));
     }
   }
 

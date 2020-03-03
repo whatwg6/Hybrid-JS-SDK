@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
-    "outDir": "./build",
+    "outDir": "build",
+    "rootDir": "./src/",
     "target": "es5",
     "module": "commonjs",
     "types": ["node"],
@@ -10,10 +11,6 @@
     // "strict": true,
     "strictNullChecks": true
   },
-  "include": [
-    "./src/**/*.ts",
-    "./examples/**/*.ts",
-    "./types/index.d.ts"
-  ],
+  "include": ["./src/**/*.ts", "./types/index.d.ts"],
   "typeRoots": ["./node_modules/@types", "./types"]
 }

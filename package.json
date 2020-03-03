@@ -3,7 +3,7 @@
   "version": "0.0.10",
   "description": "Hybrid-JS-SDK",
   "main": "./build/index.js",
-  "typings": "./types/index.d.ts",
+  "typings": "./build/index.d.ts",
   "scripts": {
     "start": "tsc -w",
     "test": "echo \"Error: no test specified\" && exit 1"

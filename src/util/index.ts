@@ -4,4 +4,8 @@ function generateId(): string {
   return uuid();
 }
 
-export { generateId };
+function isFunction(target: any): target is Function {
+  return typeof target === "function";
+}
+
+export { generateId, isFunction };

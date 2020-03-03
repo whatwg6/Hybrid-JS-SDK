@@ -1,5 +1,3 @@
-import { Promise } from "es6-promise";
-
 import Adapter from "./Adaper";
 
 import { generateId } from "../util";

@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var es6_promise_1 = require("es6-promise");
 var util_1 = require("../util");
 var Bridge = (function () {
     function Bridge(adapter) {
@@ -22,7 +21,7 @@ var Bridge = (function () {
     };
     Bridge.prototype.onDispatch = function (id) {
         var _this = this;
-        return new es6_promise_1.Promise(function (resolve, reject) {
+        return new Promise(function (resolve, reject) {
             return _this.adapter.eventEmitter.on(id, function (messages) {
                 var message = messages[id];
                 if (message) {

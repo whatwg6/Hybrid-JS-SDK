@@ -36,4 +36,3 @@ var Adapter = (function () {
     return Adapter;
 }());
 exports.default = Adapter;
-//# sourceMappingURL=Adaper.js.map

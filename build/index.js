@@ -6,6 +6,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var Adaper_1 = __importDefault(require("./core/Adaper"));
 var Bridge_1 = __importDefault(require("./core/Bridge"));
 var EventEmit_1 = __importDefault(require("./core/EventEmit"));
+var simulator_1 = __importDefault(require("./simulator"));
+exports.simulator = simulator_1.default;
 var eventEmit = new EventEmit_1.default();
 var adaper = new Adaper_1.default(eventEmit);
 var bridge = new Bridge_1.default(adaper);
@@ -20,4 +22,3 @@ var hybrid = {
     listen: listen
 };
 exports.default = hybrid;
-//# sourceMappingURL=index.js.map

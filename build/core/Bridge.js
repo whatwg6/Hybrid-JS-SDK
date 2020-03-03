@@ -43,4 +43,3 @@ var Bridge = (function () {
     return Bridge;
 }());
 exports.default = Bridge;
-//# sourceMappingURL=Bridge.js.map

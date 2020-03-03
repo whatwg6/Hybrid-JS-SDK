@@ -1,7 +1,8 @@
 import Adaper from "./core/Adaper";
 import Bridge from "./core/Bridge";
-
 import EventEmitter from "./core/EventEmit";
+
+import simulator from "./simulator";
 
 const eventEmit = new EventEmitter();
 
@@ -19,4 +20,5 @@ const hybrid = {
   listen
 };
 
+export { simulator };
 export default hybrid;

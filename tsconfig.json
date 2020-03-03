@@ -6,7 +6,7 @@
     "module": "commonjs",
     "types": ["node"],
     "esModuleInterop": true,
-    "sourceMap": true,
+    // "sourceMap": true,
     "removeComments": true,
     // "strict": true,
     "strictNullChecks": true

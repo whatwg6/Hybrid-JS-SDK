@@ -12,4 +12,3 @@ function isFunction(target) {
     return typeof target === "function";
 }
 exports.isFunction = isFunction;
-//# sourceMappingURL=index.js.map

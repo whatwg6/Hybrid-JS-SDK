@@ -21,4 +21,3 @@ var EventEmit = (function () {
     return EventEmit;
 }());
 exports.default = EventEmit;
-//# sourceMappingURL=EventEmit.js.map

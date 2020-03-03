@@ -20,4 +20,3 @@ var NativeInterface = (function () {
     return NativeInterface;
 }());
 exports.default = NativeInterface;
-//# sourceMappingURL=NativeInterface.js.map

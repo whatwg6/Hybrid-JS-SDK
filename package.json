@@ -1,6 +1,6 @@
 {
   "name": "hybrid-js-sdk",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Hybrid-JS-SDK",
   "main": "./build/index.js",
   "typings": "./types/index.d.ts",

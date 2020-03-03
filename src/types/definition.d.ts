@@ -14,7 +14,7 @@ declare global {
       nativeApp?: {
         sendToNative?: (params: string) => void;
       };
-      webApp: NativeInterface | void;
+      webApp: NativeInterface;
     }
   }
 }

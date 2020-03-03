@@ -40,7 +40,8 @@ class Adapter {
   }
 
   public disconnect(): void {
-    global.webApp = void 0;
+    // Type 'undefined' is not assignable to type 'NativeInterface'.
+    // global.webApp = void 0;
   }
 }
 

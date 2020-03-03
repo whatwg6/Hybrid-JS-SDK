@@ -8,9 +8,12 @@
     "sourceMap": true,
     "removeComments": true,
     // "strict": true,
-    "strictNullChecks": true,
+    "strictNullChecks": true
   },
-  "include": ["./src/**/*.ts"],
-  "files": ["./examples/index.ts", "./examples/nativeSimulator.ts"],
-  "typeRoots": ["./node_modules/@types", "./src/types"]
+  "include": [
+    "./src/**/*.ts",
+    "./examples/**/*.ts",
+    "./types/index.d.ts"
+  ],
+  "typeRoots": ["./node_modules/@types", "./types"]
 }

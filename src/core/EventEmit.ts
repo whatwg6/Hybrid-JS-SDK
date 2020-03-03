@@ -1,4 +1,4 @@
-import { Listener } from "../types/EventEmit";
+import { Listener } from "../../types/EventEmit";
 
 class EventEmit {
   private listener: Listener = {};

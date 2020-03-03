@@ -6,6 +6,8 @@
   "typings": "build/index.d.ts",
   "scripts": {
     "start": "tsc -w",
+    "build": "tsc",
+    "postversion": "git push && git push --tags",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "files": [

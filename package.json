@@ -8,6 +8,9 @@
     "start": "tsc -w",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "files": [
+    "./build/**/*"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/0x0006e/Hybrid-JS-SDK.git"

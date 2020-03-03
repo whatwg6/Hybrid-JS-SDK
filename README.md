@@ -59,7 +59,7 @@ unsubscribe1()
 
 ## Preview
 
-- [examples](./examples)
+- [examples online](./examples/dist)
 
 ```bash
   git clone https://github.com/0x0006e/Hybrid-JS-SDK.git

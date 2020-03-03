@@ -2,8 +2,8 @@
   "name": "hybrid-js-sdk",
   "version": "1.0.1-0",
   "description": "Hybrid-JS-SDK",
-  "main": "./build/index.js",
-  "typings": "./build/index.d.ts",
+  "main": "build/index.js",
+  "typings": "build/index.d.ts",
   "scripts": {
     "start": "tsc -w",
     "test": "echo \"Error: no test specified\" && exit 1"

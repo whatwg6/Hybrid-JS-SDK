@@ -18,7 +18,7 @@ Web define two methods to window:
 
 ### Web -> Native
 
-[examples/index.js](./examples/index.js)
+[examples/src/index.js](./examples/src/index.js)
 
 - Web dispatch `module/action`
 
@@ -36,7 +36,7 @@ setTimeout(() => {
 
 ### Native -> Web
 
-[examples/nativeSimulator.js](./examples/nativeSimulator.js)
+[examples/src/index.js](./examples/src/index.js)
 
 - Web subscribe `module/action`
 
@@ -59,9 +59,13 @@ unsubscribe1()
 
 ## Preview
 
-Vscode debug
+- [examples](./examples)
 
-- [examples/index.js](./examples/index.js)
+```bash
+  git clone https://github.com/0x0006e/Hybrid-JS-SDK.git
+  cd Hybrid-JS-SDK/examples
+  yarn && yarn start
+```
 
 ## TODO
 

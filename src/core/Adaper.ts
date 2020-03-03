@@ -2,6 +2,7 @@ import EventEmitter from "./EventEmit";
 import NativeInterface from "./NativeInterface";
 
 import { Message } from "../types/Message";
+import { isFunction } from "../util";
 
 class Adapter {
   constructor(readonly eventEmitter: EventEmitter) {}
@@ -20,12 +21,16 @@ class Adapter {
     if (
       global.webkit &&
       global.webkit.messageHandlers &&
-      global.webkit.messageHandlers.nativeApp
+      global.webkit.messageHandlers.nativeApp &&
+      isFunction(global.webkit.messageHandlers.nativeApp.postMessage)
     ) {
       global.webkit.messageHandlers.nativeApp.postMessage(
         hybridMessage
       );
-    } else if (global.nativeApp && global.nativeApp.sendToNative) {
+    } else if (
+      global.nativeApp &&
+      isFunction(global.nativeApp.sendToNative)
+    ) {
       global.nativeApp.sendToNative(JSON.stringify(hybridMessage));
     }
   }

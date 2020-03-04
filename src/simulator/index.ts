@@ -1,5 +1,5 @@
 // simulate Native injcet js
-import { StatusLevel } from "../../types/Message";
+import { DispatchMessage } from "../../types/Message";
 
 import handleBaseAction from "./handleBaseAction";
 import handleAnswerAction from "./handleAnswerAction";
@@ -14,7 +14,7 @@ function simulator(): void {
   global.webkit.messageHandlers.nativeApp.postMessage = function({
     id,
     payload: { module, action, params }
-  }) {
+  }: DispatchMessage) {
     switch (module) {
       case "base": {
         handleBaseAction(id, action);

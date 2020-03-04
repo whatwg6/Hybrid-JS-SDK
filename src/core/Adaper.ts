@@ -2,6 +2,7 @@ import EventEmitter from "./EventEmit";
 import NativeInterface from "./NativeInterface";
 
 import { DispatchMessage } from "../../types/Message";
+
 import { isFunction } from "../util";
 
 class Adapter {

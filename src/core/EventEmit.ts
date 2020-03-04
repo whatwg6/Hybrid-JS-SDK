@@ -1,20 +1,21 @@
 import { Listener } from "../../types/EventEmit";
+import Event from "../../types/Event";
 
 class EventEmit {
   private listener: Listener = {};
 
-  public on(event: string, handler: Function): void {
+  public on(event: Event, handler: Function): void {
     this.listener[event] = this.listener[event] || [];
     this.listener[event].push(handler);
   }
 
-  public emit(event: string, params: any): void {
+  public emit(event: Event, params?: any): void {
     if (this.listener[event]) {
       this.listener[event].forEach(f => f(params));
     }
   }
 
-  public remove(event: string, handler: Function): void {
+  public remove(event: Event, handler: Function): void {
     if (this.listener[event]) {
       this.listener[event] = this.listener[event].filter(
         f => f !== handler

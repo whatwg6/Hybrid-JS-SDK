@@ -1,6 +1,6 @@
-import { StatusLevel } from "../../types/Message";
+import { Id, Action, StatusLevel } from "../../types/Message";
 
-function handleBaseAction(eventId: string, action: string): void {
+function handleBaseAction(eventId: Id, action: Action): void {
   switch (action) {
     case "openURL": {
       // open webpage with special browser

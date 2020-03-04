@@ -7,14 +7,17 @@ export type StatusString = keyof typeof StatusLevel;
 
 type Id = string;
 
+type Module = string;
+type Action = string;
+
 type CallbackPayload = {
   status: StatusString;
   params?: any;
 };
 
 type DispatchPayload = {
-  module: string;
-  action: string;
+  module: Module;
+  action: Action;
   params?: any;
 };
 
@@ -32,6 +35,8 @@ type Message = DispatchMessage | CallbackMessage;
 
 export {
   Id,
+  Module,
+  Action,
   DispatchMessage,
   CallbackMessage,
   CallbackPayload,

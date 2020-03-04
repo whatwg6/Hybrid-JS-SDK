@@ -1,6 +1,8 @@
 import uuid from "uuid/v4";
 
-function generateId(): string {
+import { Id } from "../../types/Message";
+
+function generateId(): Id {
   return uuid();
 }
 

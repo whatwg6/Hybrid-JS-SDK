@@ -1,7 +1,8 @@
+import Event from "../../types/Event";
 declare class EventEmit {
     private listener;
-    on(event: string, handler: Function): void;
-    emit(event: string, params: any): void;
-    remove(event: string, handler: Function): void;
+    on(event: Event, handler: Function): void;
+    emit(event: Event, params?: any): void;
+    remove(event: Event, handler: Function): void;
 }
 export default EventEmit;

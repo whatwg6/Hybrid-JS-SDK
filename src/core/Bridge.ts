@@ -2,12 +2,12 @@ import Adapter from "./Adaper";
 
 import { generateId } from "../util";
 import {
+  Id,
   StatusLevel,
   CallbackPayload,
   CallbackMessage
 } from "../../types/Message";
-
-type UnListenFunction = Function;
+import Event from "../../types/Event";
 
 class Bridge {
   constructor(private readonly adapter: Adapter) {
@@ -15,7 +15,7 @@ class Bridge {
   }
 
   public dispatch(
-    event: string,
+    event: Event,
     params: any = void 0
   ): Promise<CallbackPayload> {
     const id = generateId();
@@ -33,7 +33,7 @@ class Bridge {
     return this.onDispatch(id);
   }
 
-  private onDispatch(id: string): Promise<CallbackPayload> {
+  private onDispatch(id: Id): Promise<CallbackPayload> {
     return new Promise((resolve, reject) =>
       this.adapter.eventEmitter.on(id, (message: CallbackMessage) => {
         try {
@@ -54,7 +54,7 @@ class Bridge {
     );
   }
 
-  public listen(event: string, handler: Function): UnListenFunction {
+  public listen(event: Event, handler: Function): Function {
     const wrapHandler: Function = (args: any) => handler(args);
 
     this.adapter.eventEmitter.on(event, wrapHandler);
@@ -62,7 +62,7 @@ class Bridge {
     return () => this.unListen(event, wrapHandler);
   }
 
-  private unListen(event: string, handler: Function): void {
+  private unListen(event: Event, handler: Function): void {
     this.adapter.eventEmitter.remove(event, handler);
   }
 }

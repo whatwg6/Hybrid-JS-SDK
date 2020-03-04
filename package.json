@@ -3,7 +3,6 @@
   "version": "1.2.1",
   "description": "Hybrid-JS-SDK",
   "main": "build/index.js",
-  "typings": "build/index.d.ts",
   "scripts": {
     "start": "tsc -w",
     "build": "tsc && cd ./examples && yarn build",

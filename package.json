@@ -1,5 +1,5 @@
 {
-  "name": "hybrid-js-sdk",
+  "name": "@0x0006e/hybrid-js-sdk",
   "version": "1.2.3",
   "description": "Hybrid-JS-SDK",
   "main": "build/index.js",
@@ -28,5 +28,9 @@
   "devDependencies": {
     "@types/node": "^13.7.7",
     "@types/uuid": "^7.0.0"
+  },
+  "directories": {
+    "example": "examples",
+    "test": "tests"
   }
 }

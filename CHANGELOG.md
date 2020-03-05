@@ -1,3 +1,7 @@
+## [1.2.5](https://github.com/0x0006e/Hybrid-JS-SDK/compare/v1.2.4...v1.2.5) (2020-03-05)
+
+
+
 ## [1.2.4](https://github.com/0x0006e/Hybrid-JS-SDK/compare/v1.2.3...v1.2.4) (2020-03-05)
 
 

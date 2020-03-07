@@ -60,14 +60,14 @@ unsubscribe1()
 ## Preview
 
 - [online examples](https://0x0006e.github.io/Hybrid-JS-SDK/examples/dist/)
+- [other examples](https://github.com/0x0006e/Hybrid-JS-SDK/blob/master/examples/src/index.js)
+- local preview
 
 ```bash
   git clone https://github.com/0x0006e/Hybrid-JS-SDK.git
   cd Hybrid-JS-SDK/examples
   yarn && yarn start
 ```
-
-- [other examples](https://github.com/0x0006e/Hybrid-JS-SDK/blob/master/examples/src/index.js)
 
 ## TODO
 

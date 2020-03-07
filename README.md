@@ -60,7 +60,7 @@ unsubscribe1()
 ## Preview
 
 - [online examples](https://0x0006e.github.io/Hybrid-JS-SDK/examples/dist/)
-- [other examples](https://github.com/0x0006e/Hybrid-JS-SDK/blob/master/examples/src/index.js)
+- [other examples](https://github.com/0x0006e/react-SSR/blob/dev/hybrid/src/pages/home/index.tsx#L9)
 - local preview
 
 ```bash

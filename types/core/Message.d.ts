@@ -6,15 +6,15 @@ export declare type StatusString = keyof typeof StatusLevel;
 declare type Id = string;
 declare type Module = string;
 declare type Action = string;
-declare type CallbackPayload = {
+interface CallbackPayload {
     status: StatusString;
     params?: any;
-};
-declare type DispatchPayload = {
+}
+interface DispatchPayload {
     module: Module;
     action: Action;
     params?: any;
-};
+}
 declare type DispatchMessage = {
     readonly id: Id;
     payload: DispatchPayload;

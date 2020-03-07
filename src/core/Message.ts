@@ -10,16 +10,16 @@ type Id = string;
 type Module = string;
 type Action = string;
 
-type CallbackPayload = {
+interface CallbackPayload {
   status: StatusString;
   params?: any;
-};
+}
 
-type DispatchPayload = {
+interface DispatchPayload {
   module: Module;
   action: Action;
   params?: any;
-};
+}
 
 type DispatchMessage = {
   readonly id: Id;

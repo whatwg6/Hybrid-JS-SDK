@@ -7,7 +7,7 @@
     "types": ["node"],
     "esModuleInterop": true,
     "declaration": true,
-    // "declarationDir": "types",
+    "declarationDir": "types",
     // "sourceMap": true,
     "removeComments": true,
     // TODO: uuid/v4 error

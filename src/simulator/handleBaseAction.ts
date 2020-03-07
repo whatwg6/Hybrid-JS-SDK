@@ -1,4 +1,4 @@
-import { Id, Action, StatusLevel } from "../../types/Message";
+import { Id, Action, StatusLevel } from "../core/Message";
 
 function handleBaseAction(eventId: Id, action: Action): void {
   switch (action) {

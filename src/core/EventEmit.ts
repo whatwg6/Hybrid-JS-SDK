@@ -1,5 +1,8 @@
-import { Listener } from "../../types/EventEmit";
-import Event from "../../types/Event";
+import Event from "./Event";
+
+type Listener = {
+  [key: string]: Function[];
+};
 
 class EventEmit {
   private listener: Listener = {};

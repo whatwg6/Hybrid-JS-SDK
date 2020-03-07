@@ -1,5 +1,5 @@
 // simulate Native injcet js
-import { DispatchMessage } from "../../types/Message";
+import { DispatchMessage } from "../core/Message";
 
 import handleBaseAction from "./handleBaseAction";
 import handleAnswerAction from "./handleAnswerAction";

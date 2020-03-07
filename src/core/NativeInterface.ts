@@ -1,7 +1,7 @@
 import EventEmit from "./EventEmit";
 
-import { CallbackMessage } from "../../types/Message";
-import Event from "../../types/Event";
+import { CallbackMessage } from "./Message";
+import Event from "./Event";
 
 class NativeInterface {
   constructor(readonly eventEmitter: EventEmit) {}

@@ -1,4 +1,4 @@
-import Event from "./Event";
+import Event from "../../types/Event";
 declare class EventEmit {
     private listener;
     on(event: Event, handler: Function): void;

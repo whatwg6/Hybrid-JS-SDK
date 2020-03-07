@@ -7,12 +7,13 @@
     "types": ["node"],
     "esModuleInterop": true,
     "declaration": true,
+    // "declarationDir": "types",
     // "sourceMap": true,
     "removeComments": true,
     // TODO: uuid/v4 error
     // "strict": true,
     "strictNullChecks": true
   },
-  "include": ["./src/**/*.ts", "./types/*.ts"],
+  "include": ["src"],
   "typeRoots": ["./node_modules/@types", "./types"]
 }

@@ -1,5 +1,5 @@
-import { DispatchMessage } from "./Message";
-import NativeInterface from "../src/core/NativeInterface";
+import { DispatchMessage } from "./core/Message";
+import NativeInterface from "./core/NativeInterface";
 
 declare global {
   namespace NodeJS {

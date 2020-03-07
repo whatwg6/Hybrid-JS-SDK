@@ -6,8 +6,8 @@ import {
   StatusLevel,
   CallbackPayload,
   CallbackMessage
-} from "../../types/Message";
-import Event from "../../types/Event";
+} from "./Message";
+import Event from "./Event";
 
 class Bridge {
   constructor(private readonly adapter: Adapter) {

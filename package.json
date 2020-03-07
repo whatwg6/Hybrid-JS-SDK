@@ -6,7 +6,7 @@
   "scripts": {
     "start": "tsc -w",
     "build": "tsc && cd ./examples && yarn build",
-    "postversion": "git push && git push --tags",
+    "post": "git push && git push --tags",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

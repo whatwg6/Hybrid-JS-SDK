@@ -1,7 +1,7 @@
 import EventEmitter from "./EventEmit";
 import NativeInterface from "./NativeInterface";
 
-import { DispatchMessage } from "../../types/Message";
+import { DispatchMessage } from "./Message";
 
 import { isFunction } from "../util";
 

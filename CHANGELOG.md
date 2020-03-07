@@ -1,3 +1,21 @@
+## [1.2.9](https://github.com/0x0006e/Hybrid-JS-SDK/compare/v1.2.8...v1.2.9) (2020-03-07)
+
+
+### Bug Fixes
+
+* typeing ([c6a49e3](https://github.com/0x0006e/Hybrid-JS-SDK/commit/c6a49e3a5d63f2ce6303fe22ece259601b906c65))
+
+
+
+## [1.2.8](https://github.com/0x0006e/Hybrid-JS-SDK/compare/v1.2.7...v1.2.8) (2020-03-07)
+
+
+### Bug Fixes
+
+* typing ([563ca0d](https://github.com/0x0006e/Hybrid-JS-SDK/commit/563ca0d52c1b713ce8874bd0076782f8febb8294))
+
+
+
 ## [1.2.7](https://github.com/0x0006e/Hybrid-JS-SDK/compare/v1.2.6...v1.2.7) (2020-03-07)
 
 

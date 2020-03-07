@@ -67,6 +67,8 @@ unsubscribe1()
   yarn && yarn start
 ```
 
+- [other examples](https://github.com/0x0006e/Hybrid-JS-SDK/blob/master/examples/src/index.js)
+
 ## TODO
 
 - inject order

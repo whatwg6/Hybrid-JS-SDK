@@ -1,3 +1,12 @@
+## [1.2.10](https://github.com/0x0006e/Hybrid-JS-SDK/compare/v1.2.9...v1.2.10) (2020-03-09)
+
+
+### Bug Fixes
+
+* examples ([92481b9](https://github.com/0x0006e/Hybrid-JS-SDK/commit/92481b994a0444d28fb575d633c86e9cd908f33c))
+
+
+
 ## [1.2.9](https://github.com/0x0006e/Hybrid-JS-SDK/compare/v1.2.8...v1.2.9) (2020-03-07)
 
 

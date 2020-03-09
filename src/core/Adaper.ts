@@ -9,20 +9,18 @@ class Adapter {
   constructor(readonly eventEmitter: EventEmitter) {}
 
   public postMessage(dispatchMessage: DispatchMessage): void {
-    if (
-      global.webkit &&
-      global.webkit.messageHandlers &&
-      global.webkit.messageHandlers.nativeApp &&
-      isFunction(global.webkit.messageHandlers.nativeApp.postMessage)
-    ) {
+    const postMessage =
+      global?.webkit?.messageHandlers?.nativeApp?.postMessage;
+    const sendToNative = global?.nativeApp?.sendToNative;
+
+    if (isFunction(postMessage)) {
       global.webkit.messageHandlers.nativeApp.postMessage(
         dispatchMessage
       );
-    } else if (
-      global.nativeApp &&
-      isFunction(global.nativeApp.sendToNative)
-    ) {
+    } else if (isFunction(sendToNative)) {
       global.nativeApp.sendToNative(JSON.stringify(dispatchMessage));
+    } else {
+      throw Error("Adapter postMessage error");
     }
   }
 

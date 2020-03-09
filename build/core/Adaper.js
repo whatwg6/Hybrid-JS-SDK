@@ -10,15 +10,17 @@ var Adapter = (function () {
         this.eventEmitter = eventEmitter;
     }
     Adapter.prototype.postMessage = function (dispatchMessage) {
-        if (global.webkit &&
-            global.webkit.messageHandlers &&
-            global.webkit.messageHandlers.nativeApp &&
-            util_1.isFunction(global.webkit.messageHandlers.nativeApp.postMessage)) {
+        var _a, _b, _c, _d;
+        var postMessage = (_c = (_b = (_a = global === null || global === void 0 ? void 0 : global.webkit) === null || _a === void 0 ? void 0 : _a.messageHandlers) === null || _b === void 0 ? void 0 : _b.nativeApp) === null || _c === void 0 ? void 0 : _c.postMessage;
+        var sendToNative = (_d = global === null || global === void 0 ? void 0 : global.nativeApp) === null || _d === void 0 ? void 0 : _d.sendToNative;
+        if (util_1.isFunction(postMessage)) {
             global.webkit.messageHandlers.nativeApp.postMessage(dispatchMessage);
         }
-        else if (global.nativeApp &&
-            util_1.isFunction(global.nativeApp.sendToNative)) {
+        else if (util_1.isFunction(sendToNative)) {
             global.nativeApp.sendToNative(JSON.stringify(dispatchMessage));
+        }
+        else {
+            throw Error("Adapter postMessage error");
         }
     };
     Adapter.prototype.connect = function () {

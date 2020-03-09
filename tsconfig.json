@@ -2,7 +2,7 @@
   "compilerOptions": {
     "outDir": "build",
     "rootDir": "./src/",
-    "target": "es5",
+    "target": "es2015",
     "module": "commonjs",
     "types": ["node"],
     "esModuleInterop": true,

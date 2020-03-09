@@ -1,13 +1,13 @@
 import Adapter from "./Adaper";
 
 import { generateId } from "../util";
-import {
+import { StatusLevel } from "./Message"
+import type { 
   Id,
-  StatusLevel,
   CallbackPayload,
   CallbackMessage
 } from "./Message";
-import Event from "./Event";
+import type Event from "./Event";
 
 class Bridge {
   constructor(private readonly adapter: Adapter) {

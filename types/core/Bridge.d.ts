@@ -1,6 +1,6 @@
 import Adapter from "./Adaper";
-import { CallbackPayload } from "./Message";
-import Event from "./Event";
+import type { CallbackPayload } from "./Message";
+import type Event from "./Event";
 declare class Bridge {
     private readonly adapter;
     constructor(adapter: Adapter);

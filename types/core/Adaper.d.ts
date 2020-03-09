@@ -1,5 +1,5 @@
 import EventEmitter from "./EventEmit";
-import { DispatchMessage } from "./Message";
+import type { DispatchMessage } from "./Message";
 declare class Adapter {
     readonly eventEmitter: EventEmitter;
     constructor(eventEmitter: EventEmitter);

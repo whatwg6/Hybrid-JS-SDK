@@ -1,23 +1,30 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var EventEmit = (function () {
-    function EventEmit() {
-        this.listener = {};
+var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (receiver, privateMap) {
+    if (!privateMap.has(receiver)) {
+        throw new TypeError("attempted to get private field on non-instance");
     }
-    EventEmit.prototype.on = function (event, handler) {
-        this.listener[event] = this.listener[event] || [];
-        this.listener[event].push(handler);
-    };
-    EventEmit.prototype.emit = function (event, params) {
-        if (this.listener[event]) {
-            this.listener[event].forEach(function (f) { return f(params); });
+    return privateMap.get(receiver);
+};
+var _listener;
+Object.defineProperty(exports, "__esModule", { value: true });
+class EventEmit {
+    constructor() {
+        _listener.set(this, {});
+    }
+    on(event, handler) {
+        __classPrivateFieldGet(this, _listener)[event] = __classPrivateFieldGet(this, _listener)[event] || [];
+        __classPrivateFieldGet(this, _listener)[event].push(handler);
+    }
+    emit(event, params) {
+        if (__classPrivateFieldGet(this, _listener)[event]) {
+            __classPrivateFieldGet(this, _listener)[event].forEach(f => f(params));
         }
-    };
-    EventEmit.prototype.remove = function (event, handler) {
-        if (this.listener[event]) {
-            this.listener[event] = this.listener[event].filter(function (f) { return f !== handler; });
+    }
+    remove(event, handler) {
+        if (__classPrivateFieldGet(this, _listener)[event]) {
+            __classPrivateFieldGet(this, _listener)[event] = __classPrivateFieldGet(this, _listener)[event].filter(f => f !== handler);
         }
-    };
-    return EventEmit;
-}());
+    }
+}
+_listener = new WeakMap();
 exports.default = EventEmit;

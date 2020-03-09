@@ -7,10 +7,10 @@ const handleBaseAction_1 = __importDefault(require("./handleBaseAction"));
 const handleAnswerAction_1 = __importDefault(require("./handleAnswerAction"));
 const handleCallBack_1 = __importDefault(require("./handleCallBack"));
 function simulator() {
-    global.webkit = global.webkit || {};
-    global.webkit.messageHandlers = global.webkit.messageHandlers || {};
-    global.webkit.messageHandlers.nativeApp =
-        global.webkit.messageHandlers.nativeApp || {};
+    var _a, _b, _c;
+    global.webkit = (_a = global.webkit) !== null && _a !== void 0 ? _a : {};
+    global.webkit.messageHandlers = (_b = global.webkit.messageHandlers) !== null && _b !== void 0 ? _b : {};
+    global.webkit.messageHandlers.nativeApp = (_c = global.webkit.messageHandlers.nativeApp) !== null && _c !== void 0 ? _c : {};
     global.webkit.messageHandlers.nativeApp.postMessage = function ({ id, payload: { module, action, params } }) {
         switch (module) {
             case "base": {

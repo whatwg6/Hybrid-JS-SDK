@@ -12,7 +12,8 @@ class EventEmit {
         _listener.set(this, {});
     }
     on(event, handler) {
-        __classPrivateFieldGet(this, _listener)[event] = __classPrivateFieldGet(this, _listener)[event] || [];
+        var _a;
+        __classPrivateFieldGet(this, _listener)[event] = (_a = __classPrivateFieldGet(this, _listener)[event]) !== null && _a !== void 0 ? _a : [];
         __classPrivateFieldGet(this, _listener)[event].push(handler);
     }
     emit(event, params) {

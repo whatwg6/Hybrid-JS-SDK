@@ -8,7 +8,7 @@ class EventEmit {
   #listener: Listener = {};
 
   public on(event: Event, handler: Function): void {
-    this.#listener[event] = this.#listener[event] || [];
+    this.#listener[event] = this.#listener[event] ?? [];
     this.#listener[event].push(handler);
   }
 

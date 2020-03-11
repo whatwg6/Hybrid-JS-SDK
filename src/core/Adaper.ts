@@ -4,7 +4,7 @@ import NativeInterface from "./NativeInterface";
 class Adapter {
   constructor(readonly eventEmitter: EventEmitter) {}
 
-  public postMessage<T>(dispatchMessage: {
+  public postMessage<T>(message: {
     readonly id: string;
     payload: {
       module: string;
@@ -18,11 +18,9 @@ class Adapter {
     const sendToNative = global?.nativeApp?.sendToNative;
 
     if (typeof postMessage === "function") {
-      global.webkit.messageHandlers.nativeApp.postMessage(
-        dispatchMessage
-      );
+      postMessage(message);
     } else if (typeof sendToNative === "function") {
-      global.nativeApp.sendToNative(JSON.stringify(dispatchMessage));
+      sendToNative(JSON.stringify(message));
     } else {
       throw Error("Adapter postMessage error");
     }

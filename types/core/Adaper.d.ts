@@ -2,7 +2,7 @@ import EventEmitter from "./EventEmit";
 declare class Adapter {
     readonly eventEmitter: EventEmitter;
     constructor(eventEmitter: EventEmitter);
-    postMessage<T>(dispatchMessage: {
+    postMessage<T>(message: {
         readonly id: string;
         payload: {
             module: string;

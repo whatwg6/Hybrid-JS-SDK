@@ -8,15 +8,15 @@ class Adapter {
     constructor(eventEmitter) {
         this.eventEmitter = eventEmitter;
     }
-    postMessage(dispatchMessage) {
+    postMessage(message) {
         var _a, _b, _c, _d;
         const postMessage = (_c = (_b = (_a = global === null || global === void 0 ? void 0 : global.webkit) === null || _a === void 0 ? void 0 : _a.messageHandlers) === null || _b === void 0 ? void 0 : _b.nativeApp) === null || _c === void 0 ? void 0 : _c.postMessage;
         const sendToNative = (_d = global === null || global === void 0 ? void 0 : global.nativeApp) === null || _d === void 0 ? void 0 : _d.sendToNative;
         if (typeof postMessage === "function") {
-            global.webkit.messageHandlers.nativeApp.postMessage(dispatchMessage);
+            postMessage(message);
         }
         else if (typeof sendToNative === "function") {
-            global.nativeApp.sendToNative(JSON.stringify(dispatchMessage));
+            sendToNative(JSON.stringify(message));
         }
         else {
             throw Error("Adapter postMessage error");

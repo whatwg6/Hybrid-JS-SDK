@@ -1,3 +1,2 @@
-import type { Id, Action } from "../core/Message";
-declare function handleBaseAction(eventId: Id, action: Action): void;
+declare function handleBaseAction(eventId: string, action: string): void;
 export default handleBaseAction;

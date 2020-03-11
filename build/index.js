@@ -8,7 +8,6 @@ const Bridge_1 = __importDefault(require("./core/Bridge"));
 const EventEmit_1 = __importDefault(require("./core/EventEmit"));
 const simulator_1 = __importDefault(require("./simulator"));
 exports.simulator = simulator_1.default;
-simulator_1.default();
 const eventEmit = new EventEmit_1.default();
 const adaper = new Adaper_1.default(eventEmit);
 const bridge = new Bridge_1.default(adaper);

@@ -1,3 +1,2 @@
-import { Id } from "../core/Message";
-declare function generateId(): Id;
+declare function generateId(): string;
 export { generateId };

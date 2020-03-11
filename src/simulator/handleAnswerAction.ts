@@ -1,7 +1,6 @@
-import type { Id, Action } from "../core/Message";
-import { StatusLevel } from "../core/Message";
+import { StatusLevel } from "../core/Status";
 
-function handleAnswerAction(eventId: Id, action: Action): void {
+function handleAnswerAction(eventId: string, action: string): void {
   switch (action) {
     case "writeAnswer": {
       setTimeout(() =>

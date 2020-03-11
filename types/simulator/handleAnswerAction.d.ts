@@ -1,3 +1,2 @@
-import type { Id, Action } from "../core/Message";
-declare function handleAnswerAction(eventId: Id, action: Action): void;
+declare function handleAnswerAction(eventId: string, action: string): void;
 export default handleAnswerAction;

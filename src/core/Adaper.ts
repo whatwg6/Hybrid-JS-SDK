@@ -1,15 +1,20 @@
 import EventEmitter from "./EventEmit";
 import NativeInterface from "./NativeInterface";
 
-import type { DispatchMessage } from "./Message";
-
 class Adapter {
   constructor(readonly eventEmitter: EventEmitter) {}
 
-  public postMessage<T>(dispatchMessage: DispatchMessage<T>): void {
+  public postMessage<T>(dispatchMessage: {
+    readonly id: string;
+    payload: {
+      module: string;
+      action: string;
+      params?: T;
+    };
+  }): void {
     const postMessage =
       global?.webkit?.messageHandlers?.nativeApp?.postMessage;
-      
+
     const sendToNative = global?.nativeApp?.sendToNative;
 
     if (typeof postMessage === "function") {

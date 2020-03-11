@@ -1,4 +1,3 @@
-import { DispatchMessage } from "./core/Message";
 import NativeInterface from "./core/NativeInterface";
 
 declare global {
@@ -7,7 +6,14 @@ declare global {
       webkit: {
         messageHandlers: {
           nativeApp: {
-            postMessage: <T>(params: DispatchMessage<T>) => void;
+            postMessage: <T>(params: {
+              readonly id: string;
+              payload: {
+                module: string;
+                action: string;
+                params?: T;
+              };
+            }) => void;
           };
         };
       };

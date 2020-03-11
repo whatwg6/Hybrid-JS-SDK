@@ -1,9 +1,7 @@
-type Listener = {
-  [key: string]: Function[];
-};
-
 class EventEmit {
-  #listener: Listener = {};
+  #listener: {
+    [key: string]: Function[];
+  } = {};
 
   public on(event: string, handler: Function): void {
     this.#listener[event] = this.#listener[event] ?? [];

@@ -6,7 +6,7 @@ class Bridge {
         this.adapter = adapter;
         this.adapter.connect();
     }
-    dispatch(event, params = void 0) {
+    dispatch(event, params) {
         const id = util_1.generateId();
         const [module, action] = event.split("/");
         this.adapter.postMessage({
@@ -22,12 +22,12 @@ class Bridge {
     onDispatch(id) {
         return new Promise((resolve, reject) => this.adapter.eventEmitter.on(id, (message) => {
             try {
-                const { payload, payload: { status } } = message;
+                const { payload: { status, params } } = message;
                 if (status === "Failure") {
-                    throw payload;
+                    throw params;
                 }
                 else {
-                    resolve(payload);
+                    resolve(params);
                 }
             }
             catch (e) {
@@ -36,7 +36,7 @@ class Bridge {
         }));
     }
     listen(event, handler) {
-        const wrapHandler = (args) => handler(args);
+        const wrapHandler = (params) => handler(params);
         this.adapter.eventEmitter.on(event, wrapHandler);
         return () => this.unListen(event, wrapHandler);
     }

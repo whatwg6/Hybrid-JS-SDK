@@ -7,7 +7,7 @@ declare global {
       webkit: {
         messageHandlers: {
           nativeApp: {
-            postMessage: (params: DispatchMessage) => void;
+            postMessage: <T>(params: DispatchMessage<T>) => void;
           };
         };
       };

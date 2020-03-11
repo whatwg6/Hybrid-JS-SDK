@@ -6,23 +6,23 @@ export declare type StatusString = keyof typeof StatusLevel;
 declare type Id = string;
 declare type Module = string;
 declare type Action = string;
-interface CallbackPayload {
+interface CallbackPayload<T> {
     status: StatusString;
-    params?: any;
+    params?: T;
 }
-interface DispatchPayload {
+interface DispatchPayload<T> {
     module: Module;
     action: Action;
-    params?: any;
+    params?: T;
 }
-declare type DispatchMessage = {
+declare type DispatchMessage<T> = {
     readonly id: Id;
-    payload: DispatchPayload;
+    payload: DispatchPayload<T>;
 };
-declare type CallbackMessage = {
+declare type CallbackMessage<T> = {
     readonly id: Id;
-    payload: CallbackPayload;
+    payload: CallbackPayload<T>;
 };
-declare type Message = DispatchMessage | CallbackMessage;
+declare type Message<T> = DispatchMessage<T> | CallbackMessage<T>;
 export { Id, Module, Action, DispatchMessage, CallbackMessage, CallbackPayload, DispatchPayload };
 export default Message;

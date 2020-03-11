@@ -8,7 +8,3 @@ function generateId() {
     return v4_1.default();
 }
 exports.generateId = generateId;
-function isFunction(target) {
-    return typeof target === "function";
-}
-exports.isFunction = isFunction;

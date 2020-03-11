@@ -12,7 +12,7 @@ class EventEmit {
     this.#listener[event].push(handler);
   }
 
-  public emit(event: Event, params?: any): void {
+  public emit<T>(event: Event, params?: T): void {
     if (this.#listener[event]) {
       this.#listener[event].forEach(f => f(params));
     }

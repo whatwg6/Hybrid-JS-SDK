@@ -1,10 +1,9 @@
 import Adapter from "./Adaper";
-import type { CallbackPayload } from "./Message";
 import type Event from "./Event";
 declare class Bridge {
     private readonly adapter;
     constructor(adapter: Adapter);
-    dispatch(event: Event, params?: any): Promise<CallbackPayload>;
+    dispatch<T>(event: Event, params?: T): Promise<unknown>;
     private onDispatch;
     listen(event: Event, handler: Function): Function;
     private unListen;

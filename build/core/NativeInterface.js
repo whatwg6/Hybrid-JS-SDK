@@ -4,7 +4,7 @@ class NativeInterface {
     constructor(eventEmitter) {
         this.eventEmitter = eventEmitter;
     }
-    dispatch(event, params = void 0) {
+    dispatch(event, params) {
         this.eventEmitter.emit(event, params);
     }
     callBack(callbackMessage) {

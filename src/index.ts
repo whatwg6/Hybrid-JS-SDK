@@ -5,17 +5,17 @@ import EventEmitter from "./core/EventEmit";
 import Event from "./core/Event";
 
 import simulator from "./simulator";
-
+simulator();
 const eventEmit = new EventEmitter();
 
 const adaper = new Adaper(eventEmit);
 const bridge = new Bridge(adaper);
 
-const dispatch = (action: Event, args?: any) =>
+const dispatch = <T>(action: Event, args?: T) =>
   bridge.dispatch(action, args);
 
-const listen = (action: Event, args: Function) =>
-  bridge.listen(action, args);
+const listen = (action: Event, callBack: Function) =>
+  bridge.listen(action, callBack);
 
 const hybrid = {
   dispatch,

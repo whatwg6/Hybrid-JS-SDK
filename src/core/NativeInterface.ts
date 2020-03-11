@@ -6,11 +6,11 @@ import type Event from "./Event";
 class NativeInterface {
   constructor(readonly eventEmitter: EventEmit) {}
 
-  public dispatch(event: Event, params: any = void 0): void {
+  public dispatch<T>(event: Event, params?: T): void {
     this.eventEmitter.emit(event, params);
   }
 
-  public callBack(callbackMessage: CallbackMessage): void {
+  public callBack<T>(callbackMessage: CallbackMessage<T>): void {
     const { id } = callbackMessage;
     this.eventEmitter.emit(id, callbackMessage);
   }

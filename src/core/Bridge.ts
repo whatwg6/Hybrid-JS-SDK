@@ -14,10 +14,10 @@ class Bridge {
     this.adapter.connect();
   }
 
-  public dispatch(
+  public dispatch<T>(
     event: Event,
-    params: any = void 0
-  ): Promise<CallbackPayload> {
+    params?: T
+  ) {
     const id = generateId();
     const [module, action] = event.split("/");
 
@@ -33,19 +33,18 @@ class Bridge {
     return this.onDispatch(id);
   }
 
-  private onDispatch(id: Id): Promise<CallbackPayload> {
+  private onDispatch(id: Id) {
     return new Promise((resolve, reject) =>
-      this.adapter.eventEmitter.on(id, (message: CallbackMessage) => {
+      this.adapter.eventEmitter.on(id, <T>(message: CallbackMessage<T>) => {
         try {
           const {
-            payload,
-            payload: { status }
+            payload: { status, params }
           } = message;
 
           if (status === StatusLevel.Failure) {
-            throw payload;
+            throw params;
           } else {
-            resolve(payload);
+            resolve(params);
           }
         } catch (e) {
           reject(e);
@@ -55,7 +54,7 @@ class Bridge {
   }
 
   public listen(event: Event, handler: Function): Function {
-    const wrapHandler: Function = (args: any) => handler(args);
+    const wrapHandler = <T>(params: T) => handler(params)
 
     this.adapter.eventEmitter.on(event, wrapHandler);
 

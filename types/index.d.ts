@@ -1,7 +1,7 @@
 import simulator from "./simulator";
 declare const hybrid: {
-    dispatch: (action: string, args?: any) => Promise<import("./core/Message").CallbackPayload>;
-    listen: (action: string, args: Function) => Function;
+    dispatch: <T>(action: string, args?: T | undefined) => Promise<unknown>;
+    listen: (action: string, callBack: Function) => Function;
 };
 export { simulator };
 export default hybrid;

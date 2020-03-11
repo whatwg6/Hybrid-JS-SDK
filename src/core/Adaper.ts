@@ -3,21 +3,20 @@ import NativeInterface from "./NativeInterface";
 
 import type { DispatchMessage } from "./Message";
 
-import { isFunction } from "../util";
-
 class Adapter {
   constructor(readonly eventEmitter: EventEmitter) {}
 
-  public postMessage(dispatchMessage: DispatchMessage): void {
+  public postMessage<T>(dispatchMessage: DispatchMessage<T>): void {
     const postMessage =
       global?.webkit?.messageHandlers?.nativeApp?.postMessage;
+      
     const sendToNative = global?.nativeApp?.sendToNative;
 
-    if (isFunction(postMessage)) {
+    if (typeof postMessage === "function") {
       global.webkit.messageHandlers.nativeApp.postMessage(
         dispatchMessage
       );
-    } else if (isFunction(sendToNative)) {
+    } else if (typeof sendToNative === "function") {
       global.nativeApp.sendToNative(JSON.stringify(dispatchMessage));
     } else {
       throw Error("Adapter postMessage error");

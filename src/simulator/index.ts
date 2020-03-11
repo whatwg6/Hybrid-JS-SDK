@@ -11,10 +11,10 @@ function simulator() {
   global.webkit.messageHandlers.nativeApp =
     global.webkit.messageHandlers.nativeApp ?? {};
 
-  global.webkit.messageHandlers.nativeApp.postMessage = function({
+  global.webkit.messageHandlers.nativeApp.postMessage = function<T>({
     id,
     payload: { module, action, params }
-  }: DispatchMessage) {
+  }: DispatchMessage<T>) {
     switch (module) {
       case "base": {
         handleBaseAction(id, action);

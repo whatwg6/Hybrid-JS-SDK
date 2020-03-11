@@ -3,7 +3,7 @@ import type { DispatchMessage } from "./Message";
 declare class Adapter {
     readonly eventEmitter: EventEmitter;
     constructor(eventEmitter: EventEmitter);
-    postMessage(dispatchMessage: DispatchMessage): void;
+    postMessage<T>(dispatchMessage: DispatchMessage<T>): void;
     connect(): void;
     disconnect(): void;
 }

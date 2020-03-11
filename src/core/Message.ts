@@ -10,28 +10,28 @@ type Id = string;
 type Module = string;
 type Action = string;
 
-interface CallbackPayload {
+interface CallbackPayload<T> {
   status: StatusString;
-  params?: any;
+  params?: T;
 }
 
-interface DispatchPayload {
+interface DispatchPayload<T> {
   module: Module;
   action: Action;
-  params?: any;
+  params?: T;
 }
 
-type DispatchMessage = {
+type DispatchMessage<T> = {
   readonly id: Id;
-  payload: DispatchPayload;
+  payload: DispatchPayload<T>;
 };
 
-type CallbackMessage = {
+type CallbackMessage<T> = {
   readonly id: Id;
-  payload: CallbackPayload;
+  payload: CallbackPayload<T>;
 };
 
-type Message = DispatchMessage | CallbackMessage;
+type Message<T> = DispatchMessage<T> | CallbackMessage<T>;
 
 export {
   Id,

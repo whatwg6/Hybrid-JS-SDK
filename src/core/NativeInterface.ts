@@ -15,7 +15,7 @@ class NativeInterface {
       status: StatusString;
       params?: T;
     };
-  }): void {
+  }) {
     const { id } = callbackMessage;
     this.eventEmitter.emit(id, callbackMessage);
   }

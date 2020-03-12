@@ -22,7 +22,9 @@ class Adapter {
     } else if (typeof sendToNative === "function") {
       sendToNative(JSON.stringify(message));
     } else {
-      throw Error("Adapter postMessage error");
+      console.error(
+        "Adapter: can not find postMessage or sendToNative"
+      );
     }
   }
 

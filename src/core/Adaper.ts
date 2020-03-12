@@ -11,7 +11,7 @@ class Adapter {
       action: string;
       params?: T;
     };
-  }): void {
+  }) {
     const postMessage =
       global?.webkit?.messageHandlers?.nativeApp?.postMessage;
 
@@ -26,11 +26,11 @@ class Adapter {
     }
   }
 
-  public connect(): void {
+  public connect() {
     global.webApp = new NativeInterface(this.eventEmitter);
   }
 
-  public disconnect(): void {
+  public disconnect() {
     // Type 'undefined' is not assignable to type 'NativeInterface'.
     // global.webApp = void 0;
   }

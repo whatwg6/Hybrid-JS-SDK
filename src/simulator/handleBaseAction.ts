@@ -1,6 +1,6 @@
 import { StatusLevel } from "../core/Status";
 
-function handleBaseAction(eventId: string, action: string): void {
+function handleBaseAction(eventId: string, action: string) {
   switch (action) {
     case "openURL": {
       // open webpage with special browser

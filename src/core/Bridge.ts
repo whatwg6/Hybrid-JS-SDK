@@ -53,7 +53,7 @@ class Bridge {
     );
   }
 
-  public listen(event: string, handler: Function): Function {
+  public listen(event: string, handler: Function) {
     const wrapHandler = <T>(params: T) => handler(params);
 
     this.adapter.eventEmitter.on(event, wrapHandler);
@@ -61,7 +61,7 @@ class Bridge {
     return () => this.unListen(event, wrapHandler);
   }
 
-  private unListen(event: string, handler: Function): void {
+  private unListen(event: string, handler: Function) {
     this.adapter.eventEmitter.remove(event, handler);
   }
 }

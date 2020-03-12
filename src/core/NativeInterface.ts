@@ -5,7 +5,7 @@ import { StatusString } from "./Status";
 class NativeInterface {
   constructor(readonly eventEmitter: EventEmit) {}
 
-  public dispatch<T>(event: string, params?: T): void {
+  public dispatch<T>(event: string, params?: T) {
     this.eventEmitter.emit(event, params);
   }
 

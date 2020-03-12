@@ -1,6 +1,6 @@
 import { StatusLevel } from "../core/Status";
 
-function handleAnswerAction(eventId: string, action: string): void {
+function handleAnswerAction(eventId: string, action: string) {
   switch (action) {
     case "writeAnswer": {
       setTimeout(() =>

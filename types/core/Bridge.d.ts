@@ -4,7 +4,7 @@ declare class Bridge {
     constructor(adapter: Adapter);
     dispatch<T>(event: string, params?: T): Promise<unknown>;
     private onDispatch;
-    listen(event: string, handler: Function): Function;
+    listen(event: string, handler: Function): () => void;
     private unListen;
 }
 export default Bridge;

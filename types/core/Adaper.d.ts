@@ -1,4 +1,4 @@
-import EventEmitter from "./EventEmit";
+import EventEmitter from "./EventEmitter";
 declare class Adapter {
     readonly eventEmitter: EventEmitter;
     constructor(eventEmitter: EventEmitter);

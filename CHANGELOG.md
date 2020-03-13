@@ -1,8 +1,4 @@
-## [1.0.1](https://github.com/0x0006e/Hybrid-JS-SDK/compare/v1.0.0...v1.0.1) (2020-03-13)
-
-
-
-# [1.0.0](https://github.com/0x0006e/Hybrid-JS-SDK/compare/7ae5cd0f031fa1277adb0e3eed67cb2b93193563...v1.0.0) (2020-03-13)
+## [1.0.2](https://github.com/0x0006e/Hybrid-JS-SDK/compare/7ae5cd0f031fa1277adb0e3eed67cb2b93193563...v1.0.2) (2020-03-13)
 
 
 ### Bug Fixes
@@ -12,6 +8,7 @@
 * files ([c652c47](https://github.com/0x0006e/Hybrid-JS-SDK/commit/c652c47f61bae4c34a287d6ce9351018ad71f7bd))
 * native call web ([d398491](https://github.com/0x0006e/Hybrid-JS-SDK/commit/d398491186c0247337ba4d3fe6d2713ae7729f8f))
 * no inject error ([c6a7ae8](https://github.com/0x0006e/Hybrid-JS-SDK/commit/c6a7ae8e53b4f039b48958ac1e553d53176f616a))
+* npm error ([a5a4ae3](https://github.com/0x0006e/Hybrid-JS-SDK/commit/a5a4ae3484f72d12ae1d3063f613ba59ebf2c173))
 * README.md ([7ae5cd0](https://github.com/0x0006e/Hybrid-JS-SDK/commit/7ae5cd0f031fa1277adb0e3eed67cb2b93193563))
 * typeing ([c6a49e3](https://github.com/0x0006e/Hybrid-JS-SDK/commit/c6a49e3a5d63f2ce6303fe22ece259601b906c65))
 * typing ([563ca0d](https://github.com/0x0006e/Hybrid-JS-SDK/commit/563ca0d52c1b713ce8874bd0076782f8febb8294))

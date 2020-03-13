@@ -9,6 +9,7 @@
     "build": "tsc && cd ./examples && yarn build",
     "post": "git push && git push --tags",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
+    "commitchangelog": "git add . && git commit -m 'docs: changelog' && yarn post",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "files": [
@@ -26,6 +27,7 @@
   },
   "homepage": "https://github.com/0x0006e/Hybrid-JS-SDK#readme",
   "dependencies": {
+    "@0x0006e/hybrid-js-sdk": "^1.0.2",
     "uuid": "^3.3.2"
   },
   "devDependencies": {

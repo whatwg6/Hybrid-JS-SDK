@@ -1,6 +1,6 @@
 import Adaper from "./core/Adaper";
 import Bridge from "./core/Bridge";
-import EventEmitter from "./core/EventEmit";
+import EventEmitter from "./core/EventEmitter";
 
 import simulator from "./simulator";
 

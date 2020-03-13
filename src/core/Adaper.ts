@@ -1,4 +1,4 @@
-import EventEmitter from "./EventEmit";
+import EventEmitter from "./EventEmitter";
 import NativeInterface from "./NativeInterface";
 
 class Adapter {

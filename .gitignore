@@ -3,6 +3,6 @@
 /coverage
 /static
 /dist
-
+/build
 # Files
 .eslintcache

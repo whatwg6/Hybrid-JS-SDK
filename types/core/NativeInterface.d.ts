@@ -1,4 +1,4 @@
-import EventEmit from "./EventEmit";
+import EventEmit from "./EventEmitter";
 import { StatusString } from "./Status";
 declare class NativeInterface {
     readonly eventEmitter: EventEmit;

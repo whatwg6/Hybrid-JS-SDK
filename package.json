@@ -35,5 +35,10 @@
   "directories": {
     "example": "examples",
     "test": "tests"
-  }
+  },
+  "keywords": [
+    "hybrid",
+    "js",
+    "sdk"
+  ]
 }

@@ -4,7 +4,7 @@ import { log } from "./util";
 log("native inject js into webview");
 simulator();
 
-log("webviwe import hybrid js sdk");
+log("web page import hybrid js sdk");
 import hybrid from "../../build";
 
 log(

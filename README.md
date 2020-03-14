@@ -14,7 +14,9 @@ Web define two methods to window:
 - window.webApp.callback
 - window.webApp.dispatch
 
-## Examples
+## API && Examples
+
+- Base Promise and EventEmitter
 
 ### Web -> Native
 

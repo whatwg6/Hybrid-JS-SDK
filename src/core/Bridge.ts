@@ -21,10 +21,10 @@ class Bridge {
       }
     });
 
-    return this.onDispatch(id, event);
+    return this.onDispatch(id);
   }
 
-  private onDispatch(id: string, event: string) {
+  private onDispatch(id: string) {
     return new Promise((resolve, reject) =>
       this.adapter.eventEmitter.on(
         id,

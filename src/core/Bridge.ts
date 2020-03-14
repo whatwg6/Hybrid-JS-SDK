@@ -50,7 +50,9 @@ class Bridge {
           }
         }
       )
-    );
+    ).finally(() => {
+      this.adapter.eventEmitter.remove(id);
+    });
   }
 
   public listen(event: string, handler: Function) {

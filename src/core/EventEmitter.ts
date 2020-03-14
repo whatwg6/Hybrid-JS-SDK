@@ -13,9 +13,13 @@ class EventEmitter {
     this.#listener.get(event)?.forEach(f => f(params));
   }
 
-  public remove(event: string, handler: Function) {
-    if (this.#listener.has(event)) {
-      this.#listener.get(event)?.delete(handler)
+  public remove(event: string, handler?: Function) {
+    if (handler && typeof handler === 'function') {
+       this.#listener.has(event) && this.#listener.get(event)?.delete(handler)
+    } 
+
+    if (this.#listener.has(event) && typeof handler === "undefined") {
+      this.#listener.delete(event)
     }
 
     if (!this.#listener.get(event)?.size) {

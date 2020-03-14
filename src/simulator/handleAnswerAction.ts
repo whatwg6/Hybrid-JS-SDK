@@ -1,16 +1,21 @@
 import { StatusLevel } from "../core/Status";
 
-function handleAnswerAction(eventId: string, action: string) {
+function handleAnswerAction(
+  eventId: string,
+  action: string
+) {
   switch (action) {
     case "writeAnswer": {
       setTimeout(() =>
-        global.webApp.callBack({
-          id: eventId,
-          payload: {
-            status: StatusLevel.Failure,
-            params: "bad event"
-          }
-        })
+        global.webApp
+          .callBack({
+            id: eventId,
+            payload: {
+              status: StatusLevel.Failure,
+              params: "bad event"
+            }
+          })
+          .then(console.log)
       );
     }
   }

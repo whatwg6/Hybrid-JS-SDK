@@ -71,9 +71,9 @@ unsubscribe1()
 
 ## TODO
 
-- inject order
-- tests
-- workflow CI CD
+- [ ] tests
+- [x] workflow CI CD
+- [ ] lint
 
 ## Others
 

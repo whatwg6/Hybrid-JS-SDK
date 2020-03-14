@@ -16,7 +16,19 @@ Web define two methods to window:
 - window.webApp.callback
 - window.webApp.dispatch
 
-## API
+## Install & API
+
+by using npm:
+
+```bash
+$ npm install @0x0006e/hybrid-js-sdk
+```
+
+or by using yarn:
+
+```
+$ yarn add @0x0006e/hybrid-js-sdk
+```
 
 ### Web -> Native
 
@@ -62,8 +74,6 @@ setTimeout(() => {
 ## Preview
 
 - [online examples](https://0x0006e.github.io/Hybrid-JS-SDK/examples/dist/)
-- [other examples](https://github.com/0x0006e/react-SSR/blob/dev/hybrid/src/pages/home/index.tsx#L9)
-- local preview
 
 ```bash
   git clone https://github.com/0x0006e/Hybrid-JS-SDK.git

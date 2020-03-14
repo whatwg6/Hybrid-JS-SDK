@@ -14,8 +14,8 @@ class EventEmitter {
   }
 
   public remove(event: string, handler?: Function) {
-    if (handler && typeof handler === 'function') {
-       this.#listener.has(event) && this.#listener.get(event)?.delete(handler)
+    if (handler && this.#listener.has(event) && typeof handler === 'function') {
+      this.#listener.get(event)?.delete(handler)
     } 
 
     if (this.#listener.has(event) && typeof handler === "undefined") {

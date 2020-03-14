@@ -55,7 +55,7 @@ webApp.dispatch(event, params).then(console.log);
 
 ```js
 setTimeout(() => {
-  webApp.callBack(eventId, params);
+  webApp.callBack(eventId, params).then(console.log);
 });
 ```
 

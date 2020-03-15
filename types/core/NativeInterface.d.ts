@@ -3,13 +3,13 @@ import { StatusString } from "./Status";
 declare class NativeInterface {
     readonly eventEmitter: EventEmit;
     constructor(eventEmitter: EventEmit);
-    dispatch<T>(event: string, params?: T): Promise<string>;
+    dispatch<T>(event: string, params?: T): void;
     callBack<T>(callbackMessage: {
         readonly id: string;
         payload: {
             status: StatusString;
             params?: T;
         };
-    }): Promise<string>;
+    }): void;
 }
 export default NativeInterface;

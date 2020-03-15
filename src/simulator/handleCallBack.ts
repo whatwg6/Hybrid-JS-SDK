@@ -1,17 +1,12 @@
 function handleCallBack() {
   setTimeout(() =>
-    global.webApp
-      .dispatch("base/networkChange", {
-        currentNetwork: "4G"
-      })
-      .then(console.log)
+    global.webApp.dispatch("base/networkChange", {
+      currentNetwork: "4G"
+    })
   );
 
   setTimeout(
-    () =>
-      global.webApp
-        .dispatch("base/networkChange", "3G")
-        .then(console.log),
+    () => global.webApp.dispatch("base/networkChange", "3G"),
     2 * 1000
   );
 }

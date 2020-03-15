@@ -60,14 +60,14 @@ unsubscribe1()
 - Native dispatch `event` to web
 
 ```js
-webApp.dispatch(event, params).then(console.log);
+webApp.dispatch(event, params);
 ```
 
 - Native handle web dispatch `event`
 
 ```js
 setTimeout(() => {
-  webApp.callBack(eventId, params).then(console.log);
+  webApp.callBack(eventId, params);
 });
 ```
 

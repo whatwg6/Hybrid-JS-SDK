@@ -1,3 +1,18 @@
+## [1.0.3](https://github.com/0x0006e/Hybrid-JS-SDK/compare/v1.0.2...v1.0.3) (2020-03-16)
+
+
+### Bug Fixes
+
+* Depend on self ([b29192c](https://github.com/0x0006e/Hybrid-JS-SDK/commit/b29192ceece12a0c409141077a141371656f19df))
+
+
+### Features
+
+* NativeInterface typing ([caf0a4a](https://github.com/0x0006e/Hybrid-JS-SDK/commit/caf0a4a14a657b638cd3edf9ca12580831ed4f6c))
+* **NativeINterface:** dispatch, callback event return Promise ([24e8fdd](https://github.com/0x0006e/Hybrid-JS-SDK/commit/24e8fdda876c6d0c7c42f3cde3ef8c477fb75b8c))
+
+
+
 ## [1.0.2](https://github.com/0x0006e/Hybrid-JS-SDK/compare/7ae5cd0f031fa1277adb0e3eed67cb2b93193563...v1.0.2) (2020-03-13)
 
 

@@ -18,6 +18,10 @@ jobs:
       - run: yarn install
       - run: yarn build
       - run: npm publish --access public
+      - run: git config --global user.email ${{ secrets.GIT_EMAIL }}
+      - run: git config --global user.name ${{ secrets.GIT_USER_NAME }}
+      - run: yarn changelog
+      - run: yarn commitchangelog
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
 

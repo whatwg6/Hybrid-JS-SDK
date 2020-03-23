@@ -1,3 +1,12 @@
+## [1.0.4](https://github.com/0x0006e/Hybrid-JS-SDK/compare/v1.0.3...v1.0.4) (2020-03-23)
+
+
+### Bug Fixes
+
+* remove promise finally ([fabef94](https://github.com/0x0006e/Hybrid-JS-SDK/commit/fabef943661d72b6a82982f7fa2375fc1d99f1d6))
+
+
+
 ## [1.0.3](https://github.com/0x0006e/Hybrid-JS-SDK/compare/v1.0.2...v1.0.3) (2020-03-16)
 
 

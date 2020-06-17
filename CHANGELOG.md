@@ -1,3 +1,7 @@
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
 ## [1.0.4](https://github.com/0x0006e/Hybrid-JS-SDK/compare/v1.0.3...v1.0.4) (2020-03-23)
 
 
@@ -37,6 +41,3 @@
 * typeing ([c6a49e3](https://github.com/0x0006e/Hybrid-JS-SDK/commit/c6a49e3a5d63f2ce6303fe22ece259601b906c65))
 * typing ([563ca0d](https://github.com/0x0006e/Hybrid-JS-SDK/commit/563ca0d52c1b713ce8874bd0076782f8febb8294))
 * webpack config ([dc4be8d](https://github.com/0x0006e/Hybrid-JS-SDK/commit/dc4be8dd3981067b13354597f494d6f66d31a847))
-
-
-

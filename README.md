@@ -1,4 +1,4 @@
-# Hybrid JS-SDK
+# Hybrid JS-SDK 
 
 ## Core
 

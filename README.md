@@ -1,4 +1,4 @@
-# Hybrid JS-SDK 
+# Hybrid JS-SDK
 
 ## Core
 
@@ -84,8 +84,6 @@ setTimeout(() => {
 ## TODO
 
 - [ ] tests
-- [x] workflow CI CD
-- [ ] lint
 
 ## Others
 

@@ -1,8 +1,8 @@
-import simulator from "../../build/simulator";
+// import simulator from "../../build/simulator";
 import { log } from "./util";
 
 log("native inject js into webview");
-simulator();
+// simulator();
 
 log("web page import hybrid js sdk");
 import hybrid from "../../build";

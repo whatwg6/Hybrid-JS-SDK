@@ -11,6 +11,9 @@
     "post": "git push --follow-tags origin master",
     "test": "echo \"passed\""
   },
+  "engines": {
+    "node": "14.x"
+  },
   "files": [
     "build",
     "types"
@@ -25,9 +28,6 @@
     "url": "https://github.com/0x0006e/Hybrid-JS-SDK/issues"
   },
   "homepage": "https://github.com/0x0006e/Hybrid-JS-SDK#readme",
-  "dependencies": {
-    "uuid": "^3.3.2"
-  },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
@@ -35,7 +35,9 @@
     "@types/uuid": "^7.0.0",
     "cz-conventional-changelog": "^3.2.0",
     "husky": "^4.2.5",
-    "standard-version": "^8.0.0"
+    "standard-version": "^8.0.0",
+    "typescript": "^4.9.5",
+    "uuid": "^3.3.2"
   },
   "directories": {
     "example": "examples",

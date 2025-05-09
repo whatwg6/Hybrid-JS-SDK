@@ -6,8 +6,7 @@
 
 Native inject global function into browser:
 
-- iOS: window.webkit.messageHandlers.nativeApp.postMessage
-- Android: window.nativeApp.sendToNative
+- nativeBridge?.sendMessage
 
 ### Native -> Web
 
@@ -70,21 +69,3 @@ setTimeout(() => {
   webApp.callBack(eventId, params);
 });
 ```
-
-## Preview
-
-- [online examples](https://0x0006e.github.io/Hybrid-JS-SDK/examples/dist/)
-
-```bash
-  git clone https://github.com/0x0006e/Hybrid-JS-SDK.git
-  cd Hybrid-JS-SDK/examples
-  yarn && yarn start
-```
-
-## TODO
-
-- [ ] tests
-
-## Others
-
-- PR thanks!

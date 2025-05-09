@@ -5,7 +5,7 @@ class EventEmitter {
     if (!this.#listener.has(event)) {
       this.#listener.set(event, new Set<Function>())
     }
-    
+
     this.#listener.get(event)?.add(handler)
   }
 

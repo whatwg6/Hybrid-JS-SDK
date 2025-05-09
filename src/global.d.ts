@@ -3,22 +3,15 @@ import NativeInterface from "./core/NativeInterface";
 declare global {
   namespace NodeJS {
     interface Global {
-      webkit: {
-        messageHandlers: {
-          nativeApp: {
-            postMessage: <T>(params: {
-              readonly id: string;
-              payload: {
-                module: string;
-                action: string;
-                params?: T;
-              };
-            }) => void;
+      nativeBridge: {
+        postMessage: <T>(params: {
+          readonly id: string;
+          payload: {
+            module: string;
+            action: string;
+            params?: T;
           };
-        };
-      };
-      nativeApp: {
-        sendToNative: (params: string) => void;
+        }) => void;
       };
       webApp: NativeInterface;
     }

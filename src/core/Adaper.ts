@@ -12,19 +12,12 @@ class Adapter {
       params?: T;
     };
   }) {
-    const postMessage =
-      global?.webkit?.messageHandlers?.nativeApp?.postMessage;
-
-    const sendToNative = global?.nativeApp?.sendToNative;
+    const postMessage = global.nativeBridge?.postMessage;
 
     if (typeof postMessage === "function") {
-      postMessage(message);
-    } else if (typeof sendToNative === "function") {
-      sendToNative(JSON.stringify(message));
+      postMessage?.(message);
     } else {
-      console.error(
-        "Adapter: can not find postMessage or sendToNative"
-      );
+      console.error("Adapter: can not find postMessage");
     }
   }
 

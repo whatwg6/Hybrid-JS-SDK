@@ -9,3 +9,5 @@
 
 # Files
 .eslintcache
+
+/build

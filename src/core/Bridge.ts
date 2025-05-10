@@ -34,6 +34,7 @@ class Bridge {
             status: StatusString;
             params?: T;
           };
+          
         }) => {
           try {
             const {
@@ -43,7 +44,7 @@ class Bridge {
             if (status === StatusLevel.Failure) {
               throw params;
             } else {
-              resolve(params);
+              resolve(message);
             }
           } catch (e) {
             reject(e);

@@ -1,13 +1,32 @@
 # Hybrid JS-SDK
 
+## Examples
+
+### Install
+
+```bash
+nvm use 14
+
+yarn
+yarn build
+
+cd examples
+
+yarn
+yarn start
+```
+
+### Xcode build
+
+- xcode open examples folder and build with simulator
+
 ## Core
 
 ### Web -> Native
 
 Native inject global function into browser:
 
-- iOS: window.webkit.messageHandlers.nativeApp.postMessage
-- Android: window.nativeApp.sendToNative
+- nativeBridge.sendMessage
 
 ### Native -> Web
 
@@ -16,19 +35,7 @@ Web define two methods to window:
 - window.webApp.callback
 - window.webApp.dispatch
 
-## Install & API
-
-by using npm:
-
-```bash
-$ npm install @0x0006e/hybrid-js-sdk
-```
-
-or by using yarn:
-
-```
-$ yarn add @0x0006e/hybrid-js-sdk
-```
+## API
 
 ### Web -> Native
 
@@ -70,21 +77,3 @@ setTimeout(() => {
   webApp.callBack(eventId, params);
 });
 ```
-
-## Preview
-
-- [online examples](https://0x0006e.github.io/Hybrid-JS-SDK/examples/dist/)
-
-```bash
-  git clone https://github.com/0x0006e/Hybrid-JS-SDK.git
-  cd Hybrid-JS-SDK/examples
-  yarn && yarn start
-```
-
-## TODO
-
-- [ ] tests
-
-## Others
-
-- PR thanks!

@@ -1,29 +1,22 @@
-import simulator from "../../build/simulator";
+// import simulator from "../../build/simulator";
 import { log } from "./util";
 
-log("native inject js into webview");
-simulator();
+// log("native inject js into webview");
+// simulator();
 
-log("web page import hybrid js sdk");
+// log("web page import hybrid js sdk");
 import hybrid from "../../build";
 
-log(
-  'web -> native: hybrid.dispatch("answer/writeAnswer", { id: 123456789 })'
-);
-hybrid
-  .dispatch("answer/writeAnswer", { id: 123456789 })
-  .then(console.log)
-  .catch(console.error);
+const unsubscribe = hybrid.listen("base/networkChange", log);
 
-log('hybrid.dispatch("base/openURL", { url: "www.twitter.com" });');
-hybrid
-  .dispatch("base/openURL", { url: "www.twitter.com" })
-  .then(console.log)
-  .catch(console.error);
-
-log(
-  'web -> native -> web: hybrid.listen("base/networkChange", console.log)'
-);
-const unsubscribe1 = hybrid.listen("base/networkChange", console.log);
-const unsubscribe2 = hybrid.listen("base/networkChange", console.log);
+const unsubscribe2 = hybrid.listen("base/networkChange", log);
 unsubscribe2();
+
+window.hybrid = hybrid;
+
+hybrid
+  .dispatch("base/alert", {
+    title: "Hello",
+  })
+  .then(log)
+  .catch(log);

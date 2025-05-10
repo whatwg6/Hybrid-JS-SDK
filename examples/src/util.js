@@ -1,5 +1,5 @@
 function log(content) {
-  console.log(`%c ${content}`, `font-size:15px;`);
+  console.log(`[WEB]`, content);
 }
 
 export { log };

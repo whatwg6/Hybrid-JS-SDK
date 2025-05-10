@@ -1,5 +1,8 @@
 # Hybrid JS-SDK
 
+<img width="1710" alt="截屏2025-05-10 13 25 13" src="https://github.com/user-attachments/assets/957f7e2e-13f5-4c9e-9163-63d89942d426" />
+
+
 ## Examples
 
 ### Install

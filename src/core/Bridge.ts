@@ -21,10 +21,10 @@ class Bridge {
       }
     });
 
-    return this.onDispatch(id);
+    return this.onCallback(id);
   }
 
-  private onDispatch(id: string) {
+  private onCallback(id: string) {
     return new Promise((resolve, reject) =>
       this.adapter.eventEmitter.on(
         id,
@@ -54,10 +54,14 @@ class Bridge {
     );
   }
 
+  private onDispatch(event: string, handler: Function) {
+    this.adapter.eventEmitter.on(event, handler);
+  }
+
   public listen(event: string, handler: Function) {
     const wrapHandler = <T>(params: T) => handler(params);
 
-    this.adapter.eventEmitter.on(event, wrapHandler);
+    this.onDispatch(event, wrapHandler);
 
     return () => this.unListen(event, wrapHandler);
   }

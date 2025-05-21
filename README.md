@@ -8,8 +8,6 @@
 ### Install
 
 ```bash
-nvm use 14
-
 yarn
 yarn build
 
